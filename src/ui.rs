@@ -1,9 +1,15 @@
 //! The reader's frame: titlebar, progress bar, and the small shared controls.
+//!
+//! The titlebar is an overlay pinned to the top of the window rather than the first child of the
+//! page's column. That is what makes distraction-free mode honest: the bar fades on its own
+//! [`Live`] opacity while the article reclaims its 56 points, instead of leaving an empty strip
+//! where the chrome used to be.
 
 pub mod drawer;
 pub mod empty;
 pub mod reader;
 pub mod scrollbar;
+pub mod tester;
 pub mod toc;
 
 use rune::tok::radius;
@@ -11,6 +17,10 @@ use rune::{Align, El, ScrollPos, col, el, row, text};
 
 use crate::State;
 use crate::theme::Palette;
+
+/// The titlebar's height, in points. The window's content starts below it unless the
+/// distraction-free bar has stepped out of the way.
+pub const BAR_H: f32 = 56.0;
 
 /// The header bar: the address field on the left (as Folio's GTK header holds a URL box), and
 /// Folio's controls on the right.
@@ -41,6 +51,7 @@ pub fn titlebar(s: &State, p: Palette, hair: f32) -> El {
                             match ev.key {
                                 rune::Key::Escape => {
                                     s.address_focus = false;
+                                    s.chrome_panel(false);
                                     tx.focus("article", false);
                                     true
                                 }
@@ -48,6 +59,7 @@ pub fn titlebar(s: &State, p: Palette, hair: f32) -> El {
                                     crate::submit_address(s);
                                     crate::kick_off(s);
                                     s.address_focus = false;
+                                    s.chrome_panel(false);
                                     tx.focus("article", false);
                                     true
                                 }
@@ -71,7 +83,10 @@ pub fn titlebar(s: &State, p: Palette, hair: f32) -> El {
                         .radius(radius::SM)
                         .fill(p.field_bg.alpha(0.5))
                         .hover(p.field_bg)
-                        .on_press(|s: &mut State| s.address_focus = true)
+                        .on_press(|s: &mut State| {
+                            s.address_focus = true;
+                            s.chrome_panel(true);
+                        })
                         .child(
                             text(short_url(&s.edit.text))
                                 .key("title-text")
@@ -98,23 +113,34 @@ pub fn titlebar(s: &State, p: Palette, hair: f32) -> El {
 
     let mut right = row().key("controls").center_y().gap(6.0);
     if s.view == crate::View::Reading {
-        right = right.child(chip(s, p, "toc", "Contents", s.show_toc, |s| {
-            s.show_toc = !s.show_toc;
-        }));
+        right = right
+            .child(chip(s, p, "toc", "Contents", s.show_toc, |s| {
+                let open = !s.show_toc;
+                s.show_toc = open;
+                s.chrome_panel(open);
+            }))
+            // The pin is what keeps the bar while the reader looks away. It reads as pressed
+            // while distraction-free mode is holding the bar, so the state is visible.
+            .child(chip(s, p, "pin", "Pin", s.reader.chrome.is_pinned(), |s| {
+                s.chrome_pin();
+            }));
     }
     right = right
         .child(chip(s, p, "library", "Library", s.view == crate::View::Library, |s| {
+            s.save_place();
             s.view = crate::View::Library;
             s.show_toc = false;
         }))
         .child(chip(s, p, "settings", "Aa", s.show_settings, |s| {
-            s.show_settings = !s.show_settings;
+            let open = !s.show_settings;
+            s.show_settings = open;
+            s.chrome_panel(open);
         }));
 
     col()
         .key("titlebar")
         .w_full()
-        .h(56.0)
+        .h(BAR_H)
         .fill(p.chrome_bg)
         .window_drag()
         .child(
@@ -138,7 +164,6 @@ fn short_url(url: &str) -> String {
         .trim_end_matches('/')
         .to_string()
 }
-
 
 /// A small pressable label in the titlebar.
 fn chip(s: &State, p: Palette, key: &'static str, label: &'static str, active: bool, f: fn(&mut State)) -> El {
