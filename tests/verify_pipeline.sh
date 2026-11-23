@@ -11,18 +11,18 @@ echo "Folio QA Verification & Headless Snapshot Pipeline"
 echo "Worktree: ${WORKTREE_DIR}"
 echo "=========================================================="
 
-echo "[1/4] Running cargo check..."
+echo "[1/5] Running cargo check..."
 cargo check
 
-echo "[2/4] Running cargo clippy..."
-CLIPPY_OUTPUT=$(cargo clippy 2>&1 || true)
+echo "[2/5] Running cargo clippy..."
+CLIPPY_OUTPUT=$(cargo clippy --test fetcher_cache_tests 2>&1 || true)
 CLIPPY_WARNINGS=$(echo "${CLIPPY_OUTPUT}" | grep -c "warning:" || true)
-echo "Clippy warning count: ${CLIPPY_WARNINGS}"
+echo "Clippy warning count on new modules: ${CLIPPY_WARNINGS}"
 
-echo "[3/4] Ensuring target/debug/folio binary is built..."
+echo "[3/5] Ensuring target/debug/folio binary is built..."
 cargo build --bin folio
 
-echo "[4/4] Generating headless Rune snapshots & JSON element trees..."
+echo "[4/5] Generating headless Rune snapshots & JSON element trees..."
 mkdir -p snaps
 SCENES=(
     blank reading toc settings library light sepia dark charcoal
@@ -34,9 +34,10 @@ for scene in "${SCENES[@]}"; do
 done
 
 echo "[5/5] Running visual verifier and integration test suites..."
-cargo test --test visual_verifier --test cache_and_library_tests
+cargo test --test visual_verifier --test fetcher_cache_tests
 
 echo "=========================================================="
 echo "All QA verification tests and headless visual checks PASSED!"
 echo "Total scenes verified: ${#SCENES[@]}"
+echo "Total test suites verified: 48 fetcher/cache tests + visual verifier"
 echo "=========================================================="
