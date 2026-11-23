@@ -718,6 +718,7 @@ window size, in every theme, at every font size a reader might need."
             excerpt: None,
             blocks,
             plain,
+            next_chapter_url: None,
         });
         // The demo bypasses `open`, so seed the address field by hand — otherwise the titlebar
         // shows its placeholder instead of the article being read.

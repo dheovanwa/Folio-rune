@@ -30,6 +30,9 @@ pub struct StoredDoc {
     pub excerpt: Option<String>,
     pub blocks: Vec<Block>,
     pub plain: String,
+    /// The next chapter of a serialised read, so a restored entry can still be prefetched.
+    #[serde(default)]
+    pub next_chapter_url: Option<String>,
 }
 
 impl From<&ArticleDoc> for StoredDoc {
@@ -42,6 +45,7 @@ impl From<&ArticleDoc> for StoredDoc {
             excerpt: d.excerpt.clone(),
             blocks: d.blocks.clone(),
             plain: d.plain.clone(),
+            next_chapter_url: d.next_chapter_url.clone(),
         }
     }
 }
@@ -56,6 +60,7 @@ impl From<StoredDoc> for ArticleDoc {
             excerpt: d.excerpt,
             blocks: d.blocks,
             plain: d.plain,
+            next_chapter_url: d.next_chapter_url,
         }
     }
 }
