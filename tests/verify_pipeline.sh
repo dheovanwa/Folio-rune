@@ -34,10 +34,10 @@ for scene in "${SCENES[@]}"; do
 done
 
 echo "[5/5] Running visual verifier and integration test suites..."
-cargo test --test visual_verifier --test fetcher_cache_tests
+cargo test --test visual_verifier --test fetcher_cache_tests --test cache_and_library_tests
 
 echo "=========================================================="
 echo "All QA verification tests and headless visual checks PASSED!"
 echo "Total scenes verified: ${#SCENES[@]}"
-echo "Total test suites verified: 48 fetcher/cache tests + visual verifier"
+echo "Total test suites verified: 106+ unit/integration tests + visual verifier"
 echo "=========================================================="

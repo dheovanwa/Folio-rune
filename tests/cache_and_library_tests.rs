@@ -23,6 +23,7 @@ fn create_sample_doc(url: &str, title: &str) -> ArticleDoc {
             },
         ],
         plain: "Sample paragraph text.".to_string(),
+        next_chapter_url: None,
     }
 }
 
