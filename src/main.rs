@@ -273,6 +273,20 @@ fn view(s: &State, cx: &mut Cx<State>) -> El {
         .w_full()
         .h_full()
         .fill(p.bg)
+        .on_wheel(|s: &mut State, e: rune::WheelEvent, _tx: &mut rune::Tx| {
+            if e.mods.ctrl || e.mods.cmd {
+                if e.dy < -0.5 {
+                    s.cfg.font_size = (s.cfg.font_size + 1.0).clamp(12.0, 36.0);
+                    s.cfg.save();
+                    return true;
+                } else if e.dy > 0.5 {
+                    s.cfg.font_size = (s.cfg.font_size - 1.0).clamp(12.0, 36.0);
+                    s.cfg.save();
+                    return true;
+                }
+            }
+            false
+        })
         .child(el().key("surface").grow(1.0).min_h(0.0).w_full().pt(top).child(surface));
     if s.cfg.show_progress_bar && s.view == View::Reading {
         page = page.child(progress(s, p));
@@ -418,6 +432,10 @@ fn on_key(s: &mut State, ev: &KeyEvent, tx: &mut Tx) -> bool {
     if s.find_focus {
         match ev.key {
             Key::Escape => {
+                if let Some(hit) = s.current_hit() {
+                    s.scroll_to = Some(Some(hit.block));
+                    tx.scroll_into_view(format!("block-{}", hit.block));
+                }
                 s.find_focus = false;
                 s.find_edit = rune::TextEdit::new("");
                 s.hits.clear();
@@ -558,15 +576,34 @@ fn on_key(s: &mut State, ev: &KeyEvent, tx: &mut Tx) -> bool {
             page_by(s, tx, -1.0);
             true
         }
-        // Space / Backspace page the article the way a pager does. Space already means
+        // Space / Shift+Space / Backspace page the article the way a pager does. Space already means
         // "next page" everywhere else, so it costs nothing to learn. Space arrives as
         // `Key::Text(" ")`, not a named key.
         Key::Text(t) if t == " " => {
-            page_by(s, tx, 1.0);
+            if ev.mods.shift {
+                page_by(s, tx, -1.0);
+            } else {
+                page_by(s, tx, 1.0);
+            }
             true
         }
         Key::Backspace => {
             page_by(s, tx, -1.0);
+            true
+        }
+        Key::Command('+') | Key::Command('=') => {
+            s.cfg.font_size = (s.cfg.font_size + 1.0).clamp(12.0, 36.0);
+            s.cfg.save();
+            true
+        }
+        Key::Command('-') | Key::Command('_') => {
+            s.cfg.font_size = (s.cfg.font_size - 1.0).clamp(12.0, 36.0);
+            s.cfg.save();
+            true
+        }
+        Key::Command('0') => {
+            s.cfg.font_size = 18.0;
+            s.cfg.save();
             true
         }
         Key::Escape => {
