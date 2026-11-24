@@ -28,115 +28,7 @@
                   0.0,
                   0.0,
                   900.0,
-                  56.0
-                ],
-                "children": [
-                  {
-                    "bounds": [
-                      0.0,
-                      0.0,
-                      900.0,
-                      55.5
-                    ],
-                    "children": [
-                      {
-                        "bounds": [
-                          20.0,
-                          11.8,
-                          596.6,
-                          32.0
-                        ],
-                        "children": [
-                          {
-                            "actions": [
-                              "click",
-                              "focus"
-                            ],
-                            "bounds": [
-                              20.0,
-                              11.8,
-                              596.6,
-                              32.0
-                            ],
-                            "key": "address",
-                            "name": "Article address",
-                            "role": "group"
-                          }
-                        ],
-                        "key": "title",
-                        "role": "group"
-                      },
-                      {
-                        "bounds": [
-                          616.6,
-                          11.8,
-                          263.4,
-                          32.0
-                        ],
-                        "children": [
-                          {
-                            "actions": [
-                              "click",
-                              "focus"
-                            ],
-                            "bounds": [
-                              616.6,
-                              11.8,
-                              110.6,
-                              32.0
-                            ],
-                            "key": "toc",
-                            "name": "Contents",
-                            "role": "button"
-                          },
-                          {
-                            "actions": [
-                              "click",
-                              "focus"
-                            ],
-                            "bounds": [
-                              733.2,
-                              11.8,
-                              91.3,
-                              32.0
-                            ],
-                            "key": "library",
-                            "name": "Library",
-                            "role": "button"
-                          },
-                          {
-                            "actions": [
-                              "click",
-                              "focus"
-                            ],
-                            "bounds": [
-                              830.5,
-                              11.8,
-                              49.5,
-                              32.0
-                            ],
-                            "key": "settings",
-                            "name": "Aa",
-                            "role": "button"
-                          }
-                        ],
-                        "key": "controls",
-                        "role": "group"
-                      }
-                    ],
-                    "key": "titlebar-row",
-                    "role": "group"
-                  }
-                ],
-                "key": "titlebar",
-                "role": "group"
-              },
-              {
-                "bounds": [
-                  0.0,
-                  56.0,
-                  900.0,
-                  664.0
+                  720.0
                 ],
                 "children": [
                   {
@@ -149,6 +41,8 @@
                     "children": [
                       {
                         "actions": [
+                          "click",
+                          "focus",
                           "scroll-up",
                           "scroll-down",
                           "set-scroll-offset"
@@ -168,7 +62,7 @@
                               0.0,
                               56.0,
                               888.0,
-                              2381.3
+                              2276.3
                             ],
                             "children": [
                               {
@@ -179,7 +73,7 @@
                                   200.0,
                                   96.0,
                                   488.0,
-                                  2301.3
+                                  2196.3
                                 ],
                                 "children": [
                                   {
@@ -190,7 +84,7 @@
                                       200.0,
                                       96.0,
                                       488.0,
-                                      2301.3
+                                      90.8
                                     ],
                                     "children": [
                                       {
@@ -201,7 +95,21 @@
                                           200.0,
                                           96.0,
                                           488.0,
-                                          90.8
+                                          59.5
+                                        ],
+                                        "key": "headline",
+                                        "name": "The Quiet Page",
+                                        "role": "label"
+                                      },
+                                      {
+                                        "actions": [
+                                          "scroll-into-view"
+                                        ],
+                                        "bounds": [
+                                          200.0,
+                                          165.5,
+                                          488.0,
+                                          21.3
                                         ],
                                         "children": [
                                           {
@@ -210,45 +118,61 @@
                                             ],
                                             "bounds": [
                                               200.0,
-                                              96.0,
-                                              488.0,
-                                              59.5
+                                              165.5,
+                                              142.0,
+                                              21.3
                                             ],
-                                            "key": "headline",
-                                            "name": "The Quiet Page",
+                                            "key": "meta",
+                                            "name": "Dheo · 2 min read",
                                             "role": "label"
-                                          },
+                                          }
+                                        ],
+                                        "key": "byline",
+                                        "role": "group"
+                                      }
+                                    ],
+                                    "key": "article-head",
+                                    "role": "group"
+                                  },
+                                  {
+                                    "actions": [
+                                      "scroll-into-view"
+                                    ],
+                                    "bounds": [
+                                      200.0,
+                                      198.8,
+                                      488.0,
+                                      2093.6
+                                    ],
+                                    "children": [
+                                      {
+                                        "actions": [
+                                          "scroll-into-view"
+                                        ],
+                                        "bounds": [
+                                          200.0,
+                                          198.8,
+                                          488.0,
+                                          72.3
+                                        ],
+                                        "children": [
                                           {
                                             "actions": [
                                               "scroll-into-view"
                                             ],
                                             "bounds": [
                                               200.0,
-                                              165.5,
+                                              216.8,
                                               488.0,
-                                              21.3
+                                              54.3
                                             ],
-                                            "children": [
-                                              {
-                                                "actions": [
-                                                  "scroll-into-view"
-                                                ],
-                                                "bounds": [
-                                                  200.0,
-                                                  165.5,
-                                                  142.0,
-                                                  21.3
-                                                ],
-                                                "key": "meta",
-                                                "name": "Dheo · 2 min read",
-                                                "role": "label"
-                                              }
-                                            ],
-                                            "key": "byline",
-                                            "role": "group"
+                                            "key": "h",
+                                            "name": "The Quiet Page",
+                                            "role": "label"
                                           }
                                         ],
-                                        "key": "article-head",
+                                        "key": "block-0",
+                                        "position": 1,
                                         "role": "group"
                                       },
                                       {
@@ -258,7 +182,7 @@
                                         ],
                                         "bounds": [
                                           200.0,
-                                          230.8,
+                                          303.0,
                                           488.0,
                                           126.0
                                         ],
@@ -270,7 +194,7 @@
                                             ],
                                             "bounds": [
                                               279.2,
-                                              272.8,
+                                              345.0,
                                               335.2,
                                               42.0
                                             ],
@@ -282,6 +206,7 @@
                                         ],
                                         "key": "block-1",
                                         "name": "Reading is a slow activity, and that is the point. Every reader worth keeping gives the words room.",
+                                        "position": 2,
                                         "role": "label"
                                       },
                                       {
@@ -290,12 +215,13 @@
                                         ],
                                         "bounds": [
                                           200.0,
-                                          388.8,
+                                          461.0,
                                           488.0,
                                           336.0
                                         ],
                                         "key": "block-2",
                                         "name": "A quiet page is not an empty one. It is a page that has made up its mind about what it is for, and then removed everything else. The margins do most of the work: they hold the text away from the edges of the window the way a frame holds a picture, and in doing so they tell you where to look.",
+                                        "position": 3,
                                         "role": "label"
                                       },
                                       {
@@ -304,7 +230,7 @@
                                         ],
                                         "bounds": [
                                           200.0,
-                                          756.8,
+                                          829.0,
                                           488.0,
                                           63.5
                                         ],
@@ -315,7 +241,7 @@
                                             ],
                                             "bounds": [
                                               200.0,
-                                              774.8,
+                                              847.0,
                                               488.0,
                                               45.5
                                             ],
@@ -325,6 +251,7 @@
                                           }
                                         ],
                                         "key": "block-3",
+                                        "position": 4,
                                         "role": "group"
                                       },
                                       {
@@ -333,12 +260,13 @@
                                         ],
                                         "bounds": [
                                           200.0,
-                                          852.3,
+                                          924.5,
                                           488.0,
                                           294.0
                                         ],
                                         "key": "block-4",
                                         "name": "Typography is the whole interface here. There is no toolbar to reach for, no chrome to decode, no icon that needs a tooltip. The size of the letters, the space between the lines, and the length of the measure are the only controls that matter, and they are all set once and then left alone.",
+                                        "position": 5,
                                         "role": "label"
                                       },
                                       {
@@ -347,7 +275,7 @@
                                         ],
                                         "bounds": [
                                           200.0,
-                                          1178.3,
+                                          1250.5,
                                           488.0,
                                           84.0
                                         ],
@@ -358,7 +286,7 @@
                                             ],
                                             "bounds": [
                                               200.0,
-                                              1178.3,
+                                              1250.5,
                                               3.0,
                                               84.0
                                             ],
@@ -371,7 +299,7 @@
                                             ],
                                             "bounds": [
                                               219.0,
-                                              1178.3,
+                                              1250.5,
                                               469.0,
                                               84.0
                                             ],
@@ -382,7 +310,7 @@
                                                 ],
                                                 "bounds": [
                                                   219.0,
-                                                  1178.3,
+                                                  1250.5,
                                                   469.0,
                                                   84.0
                                                 ],
@@ -396,6 +324,7 @@
                                           }
                                         ],
                                         "key": "block-5",
+                                        "position": 6,
                                         "role": "group"
                                       },
                                       {
@@ -404,12 +333,13 @@
                                         ],
                                         "bounds": [
                                           200.0,
-                                          1294.3,
+                                          1366.5,
                                           488.0,
                                           252.0
                                         ],
                                         "key": "block-6",
                                         "name": "A line of type wants somewhere between sixty and seventy-five characters. Shorter and the eye jumps too often; longer and it loses the next line on the way back. Folio's measure is fixed at seven hundred and twenty points for exactly this reason.",
+                                        "position": 7,
                                         "role": "label"
                                       },
                                       {
@@ -418,7 +348,7 @@
                                         ],
                                         "bounds": [
                                           200.0,
-                                          1578.3,
+                                          1650.5,
                                           488.0,
                                           63.5
                                         ],
@@ -429,7 +359,7 @@
                                             ],
                                             "bounds": [
                                               200.0,
-                                              1596.3,
+                                              1668.5,
                                               488.0,
                                               45.5
                                             ],
@@ -439,6 +369,7 @@
                                           }
                                         ],
                                         "key": "block-7",
+                                        "position": 8,
                                         "role": "group"
                                       },
                                       {
@@ -447,7 +378,7 @@
                                         ],
                                         "bounds": [
                                           200.0,
-                                          1673.8,
+                                          1746.0,
                                           488.0,
                                           184.0
                                         ],
@@ -458,7 +389,7 @@
                                             ],
                                             "bounds": [
                                               200.0,
-                                              1673.8,
+                                              1746.0,
                                               488.0,
                                               42.0
                                             ],
@@ -469,7 +400,7 @@
                                                 ],
                                                 "bounds": [
                                                   200.0,
-                                                  1673.8,
+                                                  1746.0,
                                                   24.0,
                                                   42.0
                                                 ],
@@ -483,7 +414,7 @@
                                                 ],
                                                 "bounds": [
                                                   236.0,
-                                                  1673.8,
+                                                  1746.0,
                                                   452.0,
                                                   42.0
                                                 ],
@@ -494,7 +425,7 @@
                                                     ],
                                                     "bounds": [
                                                       236.0,
-                                                      1673.8,
+                                                      1746.0,
                                                       452.0,
                                                       42.0
                                                     ],
@@ -516,7 +447,7 @@
                                             ],
                                             "bounds": [
                                               200.0,
-                                              1723.8,
+                                              1796.0,
                                               488.0,
                                               42.0
                                             ],
@@ -527,7 +458,7 @@
                                                 ],
                                                 "bounds": [
                                                   200.0,
-                                                  1723.8,
+                                                  1796.0,
                                                   24.0,
                                                   42.0
                                                 ],
@@ -541,7 +472,7 @@
                                                 ],
                                                 "bounds": [
                                                   236.0,
-                                                  1723.8,
+                                                  1796.0,
                                                   452.0,
                                                   42.0
                                                 ],
@@ -552,7 +483,7 @@
                                                     ],
                                                     "bounds": [
                                                       236.0,
-                                                      1723.8,
+                                                      1796.0,
                                                       452.0,
                                                       42.0
                                                     ],
@@ -574,7 +505,7 @@
                                             ],
                                             "bounds": [
                                               200.0,
-                                              1773.8,
+                                              1846.0,
                                               488.0,
                                               84.0
                                             ],
@@ -585,7 +516,7 @@
                                                 ],
                                                 "bounds": [
                                                   200.0,
-                                                  1773.8,
+                                                  1846.0,
                                                   24.0,
                                                   42.0
                                                 ],
@@ -599,7 +530,7 @@
                                                 ],
                                                 "bounds": [
                                                   236.0,
-                                                  1773.8,
+                                                  1846.0,
                                                   452.0,
                                                   84.0
                                                 ],
@@ -610,7 +541,7 @@
                                                     ],
                                                     "bounds": [
                                                       236.0,
-                                                      1773.8,
+                                                      1846.0,
                                                       452.0,
                                                       84.0
                                                     ],
@@ -628,68 +559,13 @@
                                           }
                                         ],
                                         "key": "block-8",
+                                        "position": 9,
                                         "role": "group"
-                                      },
-                                      {
-                                        "actions": [
-                                          "scroll-into-view"
-                                        ],
-                                        "bounds": [
-                                          200.0,
-                                          1889.8,
-                                          488.0,
-                                          168.0
-                                        ],
-                                        "key": "block-9",
-                                        "name": "Everything else is a distraction wearing the costume of a feature. The reader should be able to forget the application entirely, and remember only the article.",
-                                        "role": "label"
-                                      },
-                                      {
-                                        "actions": [
-                                          "scroll-into-view"
-                                        ],
-                                        "bounds": [
-                                          200.0,
-                                          2089.8,
-                                          488.0,
-                                          107.6
-                                        ],
-                                        "children": [
-                                          {
-                                            "actions": [
-                                              "scroll-into-view"
-                                            ],
-                                            "bounds": [
-                                              216.0,
-                                              2105.8,
-                                              456.0,
-                                              75.6
-                                            ],
-                                            "key": "code",
-                                            "name": "let measure = 720.0;\nlet leading = 1.7;",
-                                            "role": "label"
-                                          }
-                                        ],
-                                        "key": "block-10",
-                                        "role": "group"
-                                      },
-                                      {
-                                        "actions": [
-                                          "scroll-into-view"
-                                        ],
-                                        "bounds": [
-                                          200.0,
-                                          2229.3,
-                                          488.0,
-                                          168.0
-                                        ],
-                                        "key": "block-11",
-                                        "name": "That is the whole design. The rest is just making sure it holds at every window size, in every theme, at every font size a reader might need.",
-                                        "role": "label"
                                       }
                                     ],
-                                    "key": "article-body",
-                                    "role": "group"
+                                    "key": "article-rows",
+                                    "role": "group",
+                                    "setSize": 12
                                   }
                                 ],
                                 "key": "measure",
@@ -701,11 +577,11 @@
                           }
                         ],
                         "key": "article",
-                        "role": "scroll-view",
+                        "role": "button",
                         "scroll": [
                           0.0,
                           0.0,
-                          1717.4
+                          1612.3
                         ],
                         "states": [
                           "clips"
@@ -722,6 +598,129 @@
             ],
             "key": "window",
             "role": "window"
+          },
+          {
+            "bounds": [
+              0.0,
+              0.0,
+              900.0,
+              56.0
+            ],
+            "children": [
+              {
+                "bounds": [
+                  0.0,
+                  0.0,
+                  900.0,
+                  55.5
+                ],
+                "children": [
+                  {
+                    "bounds": [
+                      20.0,
+                      11.8,
+                      536.7,
+                      32.0
+                    ],
+                    "children": [
+                      {
+                        "actions": [
+                          "click",
+                          "focus"
+                        ],
+                        "bounds": [
+                          20.0,
+                          11.8,
+                          536.7,
+                          32.0
+                        ],
+                        "key": "address",
+                        "name": "Article address",
+                        "role": "group"
+                      }
+                    ],
+                    "key": "title",
+                    "role": "group"
+                  },
+                  {
+                    "bounds": [
+                      556.7,
+                      11.8,
+                      323.3,
+                      32.0
+                    ],
+                    "children": [
+                      {
+                        "actions": [
+                          "click",
+                          "focus"
+                        ],
+                        "bounds": [
+                          556.7,
+                          11.8,
+                          110.6,
+                          32.0
+                        ],
+                        "key": "toc",
+                        "name": "Contents",
+                        "role": "button"
+                      },
+                      {
+                        "actions": [
+                          "click",
+                          "focus"
+                        ],
+                        "bounds": [
+                          673.3,
+                          11.8,
+                          53.9,
+                          32.0
+                        ],
+                        "key": "pin",
+                        "name": "Pin",
+                        "role": "button"
+                      },
+                      {
+                        "actions": [
+                          "click",
+                          "focus"
+                        ],
+                        "bounds": [
+                          733.2,
+                          11.8,
+                          91.3,
+                          32.0
+                        ],
+                        "key": "library",
+                        "name": "Library",
+                        "role": "button"
+                      },
+                      {
+                        "actions": [
+                          "click",
+                          "focus"
+                        ],
+                        "bounds": [
+                          830.5,
+                          11.8,
+                          49.5,
+                          32.0
+                        ],
+                        "key": "settings",
+                        "name": "Aa",
+                        "role": "button"
+                      }
+                    ],
+                    "key": "controls",
+                    "role": "group"
+                  }
+                ],
+                "key": "titlebar-row",
+                "role": "group"
+              }
+            ],
+            "key": "titlebar",
+            "role": "group"
           }
         ],
         "key": "root",
@@ -744,7 +743,7 @@
     "role": "window"
   },
   "anim_t": 0.0,
-  "animating": false,
+  "animating": true,
   "dark_system": true,
   "elements": [
     {
@@ -789,278 +788,6 @@
     },
     {
       "blur": 0.0,
-      "fill": "#e8dfc8ff",
-      "focusVisible": false,
-      "focusable": false,
-      "focused": false,
-      "inert": false,
-      "key": "titlebar",
-      "loopPhase": null,
-      "opacity": 1.0,
-      "path": "root/window/titlebar",
-      "rect": [
-        0.0,
-        0.0,
-        900.0,
-        56.0
-      ],
-      "role": "group",
-      "scale": 1.0
-    },
-    {
-      "blur": 0.0,
-      "fill": "#00000000",
-      "focusVisible": false,
-      "focusable": false,
-      "focused": false,
-      "inert": false,
-      "key": "titlebar-row",
-      "loopPhase": null,
-      "opacity": 1.0,
-      "path": "root/window/titlebar/titlebar-row",
-      "rect": [
-        0.0,
-        0.0,
-        900.0,
-        55.5
-      ],
-      "role": "group",
-      "scale": 1.0
-    },
-    {
-      "blur": 0.0,
-      "fill": "#00000000",
-      "focusVisible": false,
-      "focusable": false,
-      "focused": false,
-      "inert": false,
-      "key": "title",
-      "loopPhase": null,
-      "opacity": 1.0,
-      "path": "root/window/titlebar/titlebar-row/title",
-      "rect": [
-        20.0,
-        11.75,
-        596.62,
-        32.0
-      ],
-      "role": "group",
-      "scale": 1.0
-    },
-    {
-      "blur": 0.0,
-      "fill": "#efe7d380",
-      "focusVisible": false,
-      "focusable": true,
-      "focused": false,
-      "inert": false,
-      "key": "address",
-      "label": "Article address",
-      "loopPhase": null,
-      "opacity": 1.0,
-      "path": "root/window/titlebar/titlebar-row/title/address",
-      "rect": [
-        20.0,
-        11.75,
-        596.62,
-        32.0
-      ],
-      "role": "searchbox",
-      "scale": 1.0
-    },
-    {
-      "blur": 0.0,
-      "color": "#8b7355ff",
-      "fill": "#00000000",
-      "focusVisible": false,
-      "focusable": false,
-      "focused": false,
-      "inert": false,
-      "key": "title-text",
-      "loopPhase": null,
-      "opacity": 1.0,
-      "path": "root/window/titlebar/titlebar-row/title/address/title-text",
-      "rect": [
-        30.0,
-        17.75,
-        221.03,
-        20.0
-      ],
-      "role": "text",
-      "scale": 1.0,
-      "text": "example.com/the-quiet-page"
-    },
-    {
-      "blur": 0.0,
-      "fill": "#00000000",
-      "focusVisible": false,
-      "focusable": false,
-      "focused": false,
-      "inert": false,
-      "key": "controls",
-      "loopPhase": null,
-      "opacity": 1.0,
-      "path": "root/window/titlebar/titlebar-row/controls",
-      "rect": [
-        616.62,
-        11.75,
-        263.38,
-        32.0
-      ],
-      "role": "group",
-      "scale": 1.0
-    },
-    {
-      "blur": 0.0,
-      "fill": "#00000000",
-      "focusVisible": false,
-      "focusable": true,
-      "focused": false,
-      "inert": false,
-      "key": "toc",
-      "label": "Contents",
-      "loopPhase": null,
-      "opacity": 1.0,
-      "path": "root/window/titlebar/titlebar-row/controls/toc",
-      "rect": [
-        616.62,
-        11.75,
-        110.58,
-        32.0
-      ],
-      "role": "button",
-      "scale": 1.0
-    },
-    {
-      "blur": 0.0,
-      "color": "#5b4636ff",
-      "fill": "#00000000",
-      "focusVisible": false,
-      "focusable": false,
-      "focused": false,
-      "inert": false,
-      "key": "label",
-      "loopPhase": null,
-      "opacity": 1.0,
-      "path": "root/window/titlebar/titlebar-row/controls/toc/label",
-      "rect": [
-        628.62,
-        15.25,
-        86.58,
-        25.0
-      ],
-      "role": "text",
-      "scale": 1.0,
-      "text": "Contents"
-    },
-    {
-      "blur": 0.0,
-      "fill": "#00000000",
-      "focusVisible": false,
-      "focusable": true,
-      "focused": false,
-      "inert": false,
-      "key": "library",
-      "label": "Library",
-      "loopPhase": null,
-      "opacity": 1.0,
-      "path": "root/window/titlebar/titlebar-row/controls/library",
-      "rect": [
-        733.2,
-        11.75,
-        91.27,
-        32.0
-      ],
-      "role": "button",
-      "scale": 1.0
-    },
-    {
-      "blur": 0.0,
-      "color": "#5b4636ff",
-      "fill": "#00000000",
-      "focusVisible": false,
-      "focusable": false,
-      "focused": false,
-      "inert": false,
-      "key": "label",
-      "loopPhase": null,
-      "opacity": 1.0,
-      "path": "root/window/titlebar/titlebar-row/controls/library/label",
-      "rect": [
-        745.2,
-        15.25,
-        67.27,
-        25.0
-      ],
-      "role": "text",
-      "scale": 1.0,
-      "text": "Library"
-    },
-    {
-      "blur": 0.0,
-      "fill": "#00000000",
-      "focusVisible": false,
-      "focusable": true,
-      "focused": false,
-      "inert": false,
-      "key": "settings",
-      "label": "Aa",
-      "loopPhase": null,
-      "opacity": 1.0,
-      "path": "root/window/titlebar/titlebar-row/controls/settings",
-      "rect": [
-        830.46,
-        11.75,
-        49.54,
-        32.0
-      ],
-      "role": "button",
-      "scale": 1.0
-    },
-    {
-      "blur": 0.0,
-      "color": "#5b4636ff",
-      "fill": "#00000000",
-      "focusVisible": false,
-      "focusable": false,
-      "focused": false,
-      "inert": false,
-      "key": "label",
-      "loopPhase": null,
-      "opacity": 1.0,
-      "path": "root/window/titlebar/titlebar-row/controls/settings/label",
-      "rect": [
-        842.46,
-        15.25,
-        25.54,
-        25.0
-      ],
-      "role": "text",
-      "scale": 1.0,
-      "text": "Aa"
-    },
-    {
-      "blur": 0.0,
-      "fill": "#5b463624",
-      "focusVisible": false,
-      "focusable": false,
-      "focused": false,
-      "inert": false,
-      "key": "divider",
-      "loopPhase": null,
-      "opacity": 1.0,
-      "path": "root/window/titlebar/divider",
-      "rect": [
-        0.0,
-        55.5,
-        900.0,
-        0.5
-      ],
-      "role": "group",
-      "scale": 1.0
-    },
-    {
-      "blur": 0.0,
       "fill": "#00000000",
       "focusVisible": false,
       "focusable": false,
@@ -1072,9 +799,9 @@
       "path": "root/window/surface",
       "rect": [
         0.0,
-        56.0,
+        0.0,
         900.0,
-        664.0
+        720.0
       ],
       "role": "group",
       "scale": 1.0
@@ -1103,7 +830,7 @@
       "blur": 0.0,
       "fill": "#00000000",
       "focusVisible": false,
-      "focusable": false,
+      "focusable": true,
       "focused": false,
       "inert": false,
       "key": "article",
@@ -1116,7 +843,7 @@
         888.0,
         664.0
       ],
-      "role": "group",
+      "role": "button",
       "scale": 1.0
     },
     {
@@ -1134,7 +861,7 @@
         0.0,
         56.0,
         888.0,
-        2381.35
+        2276.31
       ],
       "role": "group",
       "scale": 1.0
@@ -1154,27 +881,7 @@
         200.0,
         96.0,
         488.0,
-        2301.35
-      ],
-      "role": "group",
-      "scale": 1.0
-    },
-    {
-      "blur": 0.0,
-      "fill": "#00000000",
-      "focusVisible": false,
-      "focusable": false,
-      "focused": false,
-      "inert": false,
-      "key": "article-body",
-      "loopPhase": null,
-      "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body",
-      "rect": [
-        200.0,
-        96.0,
-        488.0,
-        2301.35
+        2196.31
       ],
       "role": "group",
       "scale": 1.0
@@ -1189,7 +896,7 @@
       "key": "article-head",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/article-head",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-head",
       "rect": [
         200.0,
         96.0,
@@ -1210,7 +917,7 @@
       "key": "headline",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/article-head/headline",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-head/headline",
       "rect": [
         200.0,
         96.0,
@@ -1231,7 +938,7 @@
       "key": "byline",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/article-head/byline",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-head/byline",
       "rect": [
         200.0,
         165.5,
@@ -1252,7 +959,7 @@
       "key": "meta",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/article-head/byline/meta",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-head/byline/meta",
       "rect": [
         200.0,
         165.5,
@@ -1265,6 +972,68 @@
     },
     {
       "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "article-rows",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows",
+      "rect": [
+        200.0,
+        198.75,
+        488.0,
+        2093.56
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "block-0",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-0",
+      "rect": [
+        200.0,
+        198.75,
+        488.0,
+        72.25
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#5b4636ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "h",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-0/h",
+      "rect": [
+        200.0,
+        216.75,
+        488.0,
+        54.25
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "The Quiet Page"
+    },
+    {
+      "blur": 0.0,
       "color": "#5b4636ff",
       "fill": "#00000000",
       "focusVisible": false,
@@ -1274,10 +1043,10 @@
       "key": "block-1",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-1",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-1",
       "rect": [
         200.0,
-        230.75,
+        303.0,
         488.0,
         126.0
       ],
@@ -1296,10 +1065,10 @@
       "key": "block-2",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-2",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-2",
       "rect": [
         200.0,
-        388.75,
+        461.0,
         488.0,
         336.0
       ],
@@ -1317,10 +1086,10 @@
       "key": "block-3",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-3",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-3",
       "rect": [
         200.0,
-        756.75,
+        829.0,
         488.0,
         63.5
       ],
@@ -1338,10 +1107,10 @@
       "key": "h",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-3/h",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-3/h",
       "rect": [
         200.0,
-        774.75,
+        847.0,
         488.0,
         45.5
       ],
@@ -1360,10 +1129,10 @@
       "key": "block-4",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-4",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-4",
       "rect": [
         200.0,
-        852.25,
+        924.5,
         488.0,
         294.0
       ],
@@ -1381,10 +1150,10 @@
       "key": "block-5",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-5",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-5",
       "rect": [
         200.0,
-        1178.25,
+        1250.5,
         488.0,
         84.0
       ],
@@ -1401,10 +1170,10 @@
       "key": "quote-rule",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-5/quote-rule",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-5/quote-rule",
       "rect": [
         200.0,
-        1178.25,
+        1250.5,
         3.0,
         84.0
       ],
@@ -1421,10 +1190,10 @@
       "key": "quote-text",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-5/quote-text",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-5/quote-text",
       "rect": [
         219.0,
-        1178.25,
+        1250.5,
         469.0,
         84.0
       ],
@@ -1442,10 +1211,10 @@
       "key": "quote-body",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-5/quote-text/quote-body",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-5/quote-text/quote-body",
       "rect": [
         219.0,
-        1178.25,
+        1250.5,
         469.0,
         84.0
       ],
@@ -1464,10 +1233,10 @@
       "key": "block-6",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-6",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-6",
       "rect": [
         200.0,
-        1294.25,
+        1366.5,
         488.0,
         252.0
       ],
@@ -1485,10 +1254,10 @@
       "key": "block-7",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-7",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-7",
       "rect": [
         200.0,
-        1578.25,
+        1650.5,
         488.0,
         63.5
       ],
@@ -1506,10 +1275,10 @@
       "key": "h",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-7/h",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-7/h",
       "rect": [
         200.0,
-        1596.25,
+        1668.5,
         488.0,
         45.5
       ],
@@ -1527,10 +1296,10 @@
       "key": "block-8",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-8",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8",
       "rect": [
         200.0,
-        1673.75,
+        1746.0,
         488.0,
         184.0
       ],
@@ -1547,10 +1316,10 @@
       "key": "li-0",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-8/li-0",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-0",
       "rect": [
         200.0,
-        1673.75,
+        1746.0,
         488.0,
         42.0
       ],
@@ -1568,10 +1337,10 @@
       "key": "marker",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-8/li-0/marker",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-0/marker",
       "rect": [
         200.0,
-        1673.75,
+        1746.0,
         24.0,
         42.0
       ],
@@ -1589,10 +1358,10 @@
       "key": "li-body",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-8/li-0/li-body",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-0/li-body",
       "rect": [
         236.0,
-        1673.75,
+        1746.0,
         452.0,
         42.0
       ],
@@ -1610,10 +1379,10 @@
       "key": "li-0-text",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-8/li-0/li-body/li-0-text",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-0/li-body/li-0-text",
       "rect": [
         236.0,
-        1673.75,
+        1746.0,
         452.0,
         42.0
       ],
@@ -1631,10 +1400,10 @@
       "key": "li-1",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-8/li-1",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-1",
       "rect": [
         200.0,
-        1723.75,
+        1796.0,
         488.0,
         42.0
       ],
@@ -1652,10 +1421,10 @@
       "key": "marker",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-8/li-1/marker",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-1/marker",
       "rect": [
         200.0,
-        1723.75,
+        1796.0,
         24.0,
         42.0
       ],
@@ -1673,10 +1442,10 @@
       "key": "li-body",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-8/li-1/li-body",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-1/li-body",
       "rect": [
         236.0,
-        1723.75,
+        1796.0,
         452.0,
         42.0
       ],
@@ -1694,10 +1463,10 @@
       "key": "li-1-text",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-8/li-1/li-body/li-1-text",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-1/li-body/li-1-text",
       "rect": [
         236.0,
-        1723.75,
+        1796.0,
         452.0,
         42.0
       ],
@@ -1715,10 +1484,10 @@
       "key": "li-2",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-8/li-2",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-2",
       "rect": [
         200.0,
-        1773.75,
+        1846.0,
         488.0,
         84.0
       ],
@@ -1736,10 +1505,10 @@
       "key": "marker",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-8/li-2/marker",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-2/marker",
       "rect": [
         200.0,
-        1773.75,
+        1846.0,
         24.0,
         42.0
       ],
@@ -1757,10 +1526,10 @@
       "key": "li-body",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-8/li-2/li-body",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-2/li-body",
       "rect": [
         236.0,
-        1773.75,
+        1846.0,
         452.0,
         84.0
       ],
@@ -1778,102 +1547,16 @@
       "key": "li-2-text",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-8/li-2/li-body/li-2-text",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-2/li-body/li-2-text",
       "rect": [
         236.0,
-        1773.75,
+        1846.0,
         452.0,
         84.0
       ],
       "role": "text",
       "scale": 1.0,
       "text": "A progress bar three points tall, and no more."
-    },
-    {
-      "blur": 0.0,
-      "color": "#5b4636ff",
-      "fill": "#00000000",
-      "focusVisible": false,
-      "focusable": false,
-      "focused": false,
-      "inert": false,
-      "key": "block-9",
-      "loopPhase": null,
-      "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-9",
-      "rect": [
-        200.0,
-        1889.75,
-        488.0,
-        168.0
-      ],
-      "role": "text",
-      "scale": 1.0,
-      "text": "Everything else is a distraction wearing the costume of a feature. The reader should be able to forget the application entirely, and remember only the article."
-    },
-    {
-      "blur": 0.0,
-      "fill": "#5b463612",
-      "focusVisible": false,
-      "focusable": false,
-      "focused": false,
-      "inert": false,
-      "key": "block-10",
-      "loopPhase": null,
-      "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-10",
-      "rect": [
-        200.0,
-        2089.75,
-        488.0,
-        107.6
-      ],
-      "role": "group",
-      "scale": 1.0
-    },
-    {
-      "blur": 0.0,
-      "color": "#5b4636ff",
-      "fill": "#00000000",
-      "focusVisible": false,
-      "focusable": false,
-      "focused": false,
-      "inert": false,
-      "key": "code",
-      "loopPhase": null,
-      "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-10/code",
-      "rect": [
-        216.0,
-        2105.75,
-        456.0,
-        75.6
-      ],
-      "role": "text",
-      "scale": 1.0,
-      "text": "let measure = 720.0;\nlet leading = 1.7;"
-    },
-    {
-      "blur": 0.0,
-      "color": "#5b4636ff",
-      "fill": "#00000000",
-      "focusVisible": false,
-      "focusable": false,
-      "focused": false,
-      "inert": false,
-      "key": "block-11",
-      "loopPhase": null,
-      "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-11",
-      "rect": [
-        200.0,
-        2229.35,
-        488.0,
-        168.0
-      ],
-      "role": "text",
-      "scale": 1.0,
-      "text": "That is the whole design. The rest is just making sure it holds at every window size, in every theme, at every font size a reader might need."
     },
     {
       "blur": 0.0,
@@ -1943,6 +1626,321 @@
     },
     {
       "blur": 0.0,
+      "fill": "#e8dfc8ff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "titlebar",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        56.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "titlebar-row",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        55.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "title",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/title",
+      "rect": [
+        20.0,
+        11.75,
+        536.71,
+        32.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#efe7d380",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "address",
+      "label": "Article address",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/title/address",
+      "rect": [
+        20.0,
+        11.75,
+        536.71,
+        32.0
+      ],
+      "role": "searchbox",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#8b7355ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "title-text",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/title/address/title-text",
+      "rect": [
+        30.0,
+        17.75,
+        221.03,
+        20.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "example.com/the-quiet-page"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "controls",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls",
+      "rect": [
+        556.71,
+        11.75,
+        323.29,
+        32.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "toc",
+      "label": "Contents",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/toc",
+      "rect": [
+        556.71,
+        11.75,
+        110.58,
+        32.0
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#5b4636ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "label",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/toc/label",
+      "rect": [
+        568.71,
+        15.25,
+        86.58,
+        25.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Contents"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "pin",
+      "label": "Pin",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/pin",
+      "rect": [
+        673.29,
+        11.75,
+        53.91,
+        32.0
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#5b4636ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "label",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/pin/label",
+      "rect": [
+        685.29,
+        15.25,
+        29.91,
+        25.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Pin"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "library",
+      "label": "Library",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/library",
+      "rect": [
+        733.2,
+        11.75,
+        91.27,
+        32.0
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#5b4636ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "label",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/library/label",
+      "rect": [
+        745.2,
+        15.25,
+        67.27,
+        25.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Library"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "settings",
+      "label": "Aa",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/settings",
+      "rect": [
+        830.46,
+        11.75,
+        49.54,
+        32.0
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#5b4636ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "label",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/settings/label",
+      "rect": [
+        842.46,
+        15.25,
+        25.54,
+        25.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Aa"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#5b463624",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "divider",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/divider",
+      "rect": [
+        0.0,
+        55.5,
+        900.0,
+        0.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
       "color": "#5b4636ff",
       "fill": "#00000000",
       "focusVisible": false,
@@ -1953,10 +1951,10 @@
       "label": "Every reader worth keeping",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-body/block-1#link-0",
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-1#link-0",
       "rect": [
         279.2,
-        272.75,
+        345.0,
         335.16,
         42.0
       ],
