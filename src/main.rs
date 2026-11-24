@@ -346,6 +346,11 @@ fn view(s: &State, cx: &mut Cx<State>) -> El {
             tester::panel(s, p, hair, cx).pin(Some(0.0), Some(below_bar), Some(0.0), Some(3.0)),
         );
     }
+    if (s.find_focus || !s.hit_query.is_empty()) && s.view == View::Reading {
+        root = root.child(
+            ui::reader::find_bar(s, p, hair).pin(None, Some(below_bar + 10.0), Some(20.0), None),
+        );
+    }
     root
 }
 
