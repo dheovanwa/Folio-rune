@@ -49,7 +49,6 @@
                         "children": [
                           {
                             "actions": [
-                              "click",
                               "focus",
                               "scroll-up",
                               "scroll-down",
@@ -585,7 +584,7 @@
                               }
                             ],
                             "key": "article",
-                            "role": "button",
+                            "role": "scroll-view",
                             "scroll": [
                               0.0,
                               0.0,
@@ -981,7 +980,7 @@
         888.0,
         611.5
       ],
-      "role": "button",
+      "role": "group",
       "scale": 1.0
     },
     {

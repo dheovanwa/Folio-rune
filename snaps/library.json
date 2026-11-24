@@ -98,7 +98,7 @@
                               12.0,
                               120.5,
                               876.0,
-                              438.5
+                              527.0
                             ],
                             "children": [
                               {
@@ -145,6 +145,22 @@
                                   876.0,
                                   84.5
                                 ],
+                                "key": "entry-https://animeanyway.com/y3v5/ch6",
+                                "name": "Chapter 6: 99%",
+                                "role": "button"
+                              },
+                              {
+                                "actions": [
+                                  "click",
+                                  "focus",
+                                  "scroll-into-view"
+                                ],
+                                "bounds": [
+                                  12.0,
+                                  386.0,
+                                  876.0,
+                                  84.5
+                                ],
                                 "key": "entry-https://animeanyway.com/y3v5/ch1",
                                 "name": "Chapter 1: The Center of Attention",
                                 "role": "button"
@@ -157,7 +173,7 @@
                                 ],
                                 "bounds": [
                                   12.0,
-                                  386.0,
+                                  474.5,
                                   876.0,
                                   84.5
                                 ],
@@ -173,7 +189,7 @@
                                 ],
                                 "bounds": [
                                   12.0,
-                                  474.5,
+                                  563.0,
                                   876.0,
                                   84.5
                                 ],
@@ -542,7 +558,7 @@
         12.0,
         120.5,
         876.0,
-        438.5
+        527.0
       ],
       "role": "group",
       "scale": 1.0
@@ -844,11 +860,11 @@
       "focusable": true,
       "focused": false,
       "inert": false,
-      "key": "entry-https://animeanyway.com/y3v5/ch1",
-      "label": "Chapter 1: The Center of Attention",
+      "key": "entry-https://animeanyway.com/y3v5/ch6",
+      "label": "Chapter 6: 99%",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch1",
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch6",
       "rect": [
         12.0,
         297.5,
@@ -868,10 +884,155 @@
       "key": "entry-body",
       "loopPhase": null,
       "opacity": 1.0,
-      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch1/entry-body",
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch6/entry-body",
       "rect": [
         28.0,
         311.5,
+        844.0,
+        56.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#e4e4e4ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-title",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch6/entry-body/entry-title",
+      "rect": [
+        28.0,
+        311.5,
+        844.0,
+        23.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Chapter 6: 99%"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-meta",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch6/entry-body/entry-meta",
+      "rect": [
+        28.0,
+        341.25,
+        844.0,
+        18.75
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "meta",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch6/entry-body/entry-meta/meta",
+      "rect": [
+        28.0,
+        341.25,
+        129.25,
+        18.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "11m ago · 0% read"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#e4e4e424",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-track",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch6/entry-body/entry-track",
+      "rect": [
+        28.0,
+        366.0,
+        844.0,
+        2.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#5dade2ff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-fill",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch6/entry-body/entry-track/entry-fill",
+      "rect": [
+        28.0,
+        366.0,
+        0.0,
+        2.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "entry-https://animeanyway.com/y3v5/ch1",
+      "label": "Chapter 1: The Center of Attention",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch1",
+      "rect": [
+        12.0,
+        386.0,
+        876.0,
+        84.5
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-body",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch1/entry-body",
+      "rect": [
+        28.0,
+        400.0,
         844.0,
         56.5
       ],
@@ -892,7 +1053,7 @@
       "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch1/entry-body/entry-title",
       "rect": [
         28.0,
-        311.5,
+        400.0,
         844.0,
         23.75
       ],
@@ -913,7 +1074,7 @@
       "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch1/entry-body/entry-meta",
       "rect": [
         28.0,
-        341.25,
+        429.75,
         844.0,
         18.75
       ],
@@ -934,13 +1095,13 @@
       "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch1/entry-body/entry-meta/meta",
       "rect": [
         28.0,
-        341.25,
-        119.19,
+        429.75,
+        118.88,
         18.75
       ],
       "role": "text",
       "scale": 1.0,
-      "text": "1d ago · 0% read"
+      "text": "1d ago · 2% read"
     },
     {
       "blur": 0.0,
@@ -955,7 +1116,7 @@
       "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch1/entry-body/entry-track",
       "rect": [
         28.0,
-        366.0,
+        454.5,
         844.0,
         2.0
       ],
@@ -975,8 +1136,8 @@
       "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch1/entry-body/entry-track/entry-fill",
       "rect": [
         28.0,
-        366.0,
-        0.0,
+        454.5,
+        19.66,
         2.0
       ],
       "role": "group",
@@ -996,7 +1157,7 @@
       "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch5",
       "rect": [
         12.0,
-        386.0,
+        474.5,
         876.0,
         84.5
       ],
@@ -1016,7 +1177,7 @@
       "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch5/entry-body",
       "rect": [
         28.0,
-        400.0,
+        488.5,
         844.0,
         56.5
       ],
@@ -1037,7 +1198,7 @@
       "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch5/entry-body/entry-title",
       "rect": [
         28.0,
-        400.0,
+        488.5,
         844.0,
         23.75
       ],
@@ -1058,7 +1219,7 @@
       "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch5/entry-body/entry-meta",
       "rect": [
         28.0,
-        429.75,
+        518.25,
         844.0,
         18.75
       ],
@@ -1079,7 +1240,7 @@
       "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch5/entry-body/entry-meta/meta",
       "rect": [
         28.0,
-        429.75,
+        518.25,
         119.19,
         18.75
       ],
@@ -1100,7 +1261,7 @@
       "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch5/entry-body/entry-track",
       "rect": [
         28.0,
-        454.5,
+        543.0,
         844.0,
         2.0
       ],
@@ -1120,7 +1281,7 @@
       "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch5/entry-body/entry-track/entry-fill",
       "rect": [
         28.0,
-        454.5,
+        543.0,
         0.0,
         2.0
       ],
@@ -1141,7 +1302,7 @@
       "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch4",
       "rect": [
         12.0,
-        474.5,
+        563.0,
         876.0,
         84.5
       ],
@@ -1161,7 +1322,7 @@
       "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch4/entry-body",
       "rect": [
         28.0,
-        488.5,
+        577.0,
         844.0,
         56.5
       ],
@@ -1182,7 +1343,7 @@
       "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch4/entry-body/entry-title",
       "rect": [
         28.0,
-        488.5,
+        577.0,
         844.0,
         23.75
       ],
@@ -1203,7 +1364,7 @@
       "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch4/entry-body/entry-meta",
       "rect": [
         28.0,
-        518.25,
+        606.75,
         844.0,
         18.75
       ],
@@ -1224,7 +1385,7 @@
       "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch4/entry-body/entry-meta/meta",
       "rect": [
         28.0,
-        518.25,
+        606.75,
         119.19,
         18.75
       ],
@@ -1245,7 +1406,7 @@
       "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch4/entry-body/entry-track",
       "rect": [
         28.0,
-        543.0,
+        631.5,
         844.0,
         2.0
       ],
@@ -1265,7 +1426,7 @@
       "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch4/entry-body/entry-track/entry-fill",
       "rect": [
         28.0,
-        543.0,
+        631.5,
         0.0,
         2.0
       ],

@@ -107,9 +107,9 @@
                               "focus"
                             ],
                             "bounds": [
-                              368.5,
+                              368.2,
                               416.1,
-                              163.1,
+                              163.6,
                               34.0
                             ],
                             "key": "to-library",
@@ -803,9 +803,9 @@
       "opacity": 1.0,
       "path": "root/window/surface/blank-surface/blank/to-library",
       "rect": [
-        368.47,
+        368.22,
         416.05,
-        163.07,
+        163.57,
         34.0
       ],
       "role": "button",
@@ -824,14 +824,14 @@
       "opacity": 1.0,
       "path": "root/window/surface/blank-surface/blank/to-library/label",
       "rect": [
-        382.47,
+        382.22,
         422.43,
-        135.07,
+        135.57,
         21.25
       ],
       "role": "text",
       "scale": 1.0,
-      "text": "Library · 3 saved"
+      "text": "Library · 4 saved"
     },
     {
       "blur": 0.0,
