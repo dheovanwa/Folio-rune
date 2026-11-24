@@ -191,7 +191,10 @@ fn find_bar(s: &State, p: Palette, hair: f32) -> El {
             .on_edit(|s: &mut State| &mut s.find_edit)
             // The query is recomputed as it is typed, so the count and the highlights follow
             // the field without a separate "search" key.
-            .on_input_change(|s: &mut State, _tx: &mut rune::Tx| s.refresh_hits())
+            .on_input_change(|s: &mut State, tx: &mut rune::Tx| {
+                s.refresh_hits();
+                s.reveal_current_hit(tx);
+            })
             .on_input_key(|s: &mut State, ev: &rune::KeyEvent, tx: &mut rune::Tx| match ev.key {
                 rune::Key::Escape => {
                     if let Some(hit) = s.current_hit() {
@@ -207,15 +210,15 @@ fn find_bar(s: &State, p: Palette, hair: f32) -> El {
                     true
                 }
                 rune::Key::Enter => {
-                    s.step_hit(if ev.mods.shift { -1 } else { 1 });
+                    s.step_hit_tx(if ev.mods.shift { -1 } else { 1 }, tx);
                     true
                 }
                 rune::Key::Down => {
-                    s.step_hit(1);
+                    s.step_hit_tx(1, tx);
                     true
                 }
                 rune::Key::Up => {
-                    s.step_hit(-1);
+                    s.step_hit_tx(-1, tx);
                     true
                 }
                 _ => false,
@@ -244,7 +247,7 @@ fn find_bar(s: &State, p: Palette, hair: f32) -> El {
                 .center()
                 .radius(radius::SM)
                 .hover(p.hover)
-                .on_press(move |s: &mut State| s.step_hit(by))
+                .on_press_tx(move |s: &mut State, tx: &mut rune::Tx| s.step_hit_tx(by, tx))
                 .child(
                     text(label)
                         .key("g")
