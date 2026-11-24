@@ -1,0 +1,590 @@
+{
+  "accessibility": {
+    "bounds": [
+      0.0,
+      0.0,
+      900.0,
+      720.0
+    ],
+    "children": [
+      {
+        "bounds": [
+          0.0,
+          0.0,
+          900.0,
+          720.0
+        ],
+        "children": [
+          {
+            "bounds": [
+              0.0,
+              0.0,
+              900.0,
+              720.0
+            ],
+            "children": [
+              {
+                "bounds": [
+                  0.0,
+                  0.0,
+                  900.0,
+                  720.0
+                ],
+                "children": [
+                  {
+                    "bounds": [
+                      0.0,
+                      56.0,
+                      900.0,
+                      664.0
+                    ],
+                    "children": [
+                      {
+                        "bounds": [
+                          290.9,
+                          321.6,
+                          318.3,
+                          45.5
+                        ],
+                        "key": "title",
+                        "name": "Nothing saved yet",
+                        "role": "label"
+                      },
+                      {
+                        "bounds": [
+                          225.9,
+                          381.1,
+                          448.2,
+                          21.3
+                        ],
+                        "key": "sub",
+                        "name": "Articles you read are kept here, with your place in them.",
+                        "role": "label"
+                      },
+                      {
+                        "actions": [
+                          "click",
+                          "focus"
+                        ],
+                        "bounds": [
+                          368.4,
+                          416.4,
+                          163.2,
+                          38.0
+                        ],
+                        "key": "start",
+                        "name": "Read something",
+                        "role": "button"
+                      }
+                    ],
+                    "key": "library-empty",
+                    "role": "group"
+                  }
+                ],
+                "key": "surface",
+                "role": "group"
+              }
+            ],
+            "key": "window",
+            "role": "window"
+          },
+          {
+            "bounds": [
+              0.0,
+              0.0,
+              900.0,
+              56.0
+            ],
+            "children": [
+              {
+                "bounds": [
+                  0.0,
+                  0.0,
+                  900.0,
+                  55.5
+                ],
+                "children": [
+                  {
+                    "bounds": [
+                      20.0,
+                      15.3,
+                      68.3,
+                      25.0
+                    ],
+                    "children": [
+                      {
+                        "bounds": [
+                          20.0,
+                          15.3,
+                          68.3,
+                          25.0
+                        ],
+                        "key": "title-text",
+                        "name": "Library",
+                        "role": "label"
+                      }
+                    ],
+                    "key": "title",
+                    "role": "group"
+                  },
+                  {
+                    "bounds": [
+                      733.2,
+                      11.8,
+                      146.8,
+                      32.0
+                    ],
+                    "children": [
+                      {
+                        "actions": [
+                          "click",
+                          "focus"
+                        ],
+                        "bounds": [
+                          733.2,
+                          11.8,
+                          91.3,
+                          32.0
+                        ],
+                        "key": "library",
+                        "name": "Library",
+                        "role": "button"
+                      },
+                      {
+                        "actions": [
+                          "click",
+                          "focus"
+                        ],
+                        "bounds": [
+                          830.5,
+                          11.8,
+                          49.5,
+                          32.0
+                        ],
+                        "key": "settings",
+                        "name": "Aa",
+                        "role": "button"
+                      }
+                    ],
+                    "key": "controls",
+                    "role": "group"
+                  }
+                ],
+                "key": "titlebar-row",
+                "role": "group"
+              }
+            ],
+            "key": "titlebar",
+            "role": "group"
+          }
+        ],
+        "key": "root",
+        "role": "group"
+      },
+      {
+        "bounds": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "role": "status",
+        "states": [
+          "live-polite"
+        ]
+      }
+    ],
+    "name": "Folio",
+    "role": "window"
+  },
+  "anim_t": 0.0,
+  "animating": false,
+  "dark_system": true,
+  "elements": [
+    {
+      "blur": 0.0,
+      "fill": "#161616ff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "root",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        720.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#161616ff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "window",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        720.0
+      ],
+      "role": "window",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "surface",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        720.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#161616ff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "library-empty",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-empty",
+      "rect": [
+        0.0,
+        56.0,
+        900.0,
+        664.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#e4e4e4ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "title",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-empty/title",
+      "rect": [
+        290.88,
+        321.63,
+        318.26,
+        45.5
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Nothing saved yet"
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "sub",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-empty/sub",
+      "rect": [
+        225.91,
+        381.13,
+        448.2,
+        21.25
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Articles you read are kept here, with your place in them."
+    },
+    {
+      "blur": 0.0,
+      "fill": "#5dade2ff",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "start",
+      "label": "Read something",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-empty/start",
+      "rect": [
+        368.4,
+        416.38,
+        163.21,
+        38.0
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#161616ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "label",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-empty/start/label",
+      "rect": [
+        384.4,
+        424.75,
+        131.21,
+        21.25
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Read something"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#1c1c1cff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "titlebar",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        56.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "titlebar-row",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        55.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "title",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/title",
+      "rect": [
+        20.0,
+        15.25,
+        68.28,
+        25.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#e4e4e4ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "title-text",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/title/title-text",
+      "rect": [
+        20.0,
+        15.25,
+        68.28,
+        25.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Library"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "controls",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls",
+      "rect": [
+        733.2,
+        11.75,
+        146.8,
+        32.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#e4e4e414",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "library",
+      "label": "Library",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/library",
+      "rect": [
+        733.2,
+        11.75,
+        91.27,
+        32.0
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#5dade2ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "label",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/library/label",
+      "rect": [
+        745.2,
+        15.25,
+        67.27,
+        25.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Library"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "settings",
+      "label": "Aa",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/settings",
+      "rect": [
+        830.46,
+        11.75,
+        49.54,
+        32.0
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#e4e4e4ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "label",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/settings/label",
+      "rect": [
+        842.46,
+        15.25,
+        25.54,
+        25.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Aa"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#e4e4e424",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "divider",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/divider",
+      "rect": [
+        0.0,
+        55.5,
+        900.0,
+        0.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    }
+  ],
+  "reduced_motion": false,
+  "scale": 2.0,
+  "t": 0.0,
+  "time_scale": 1.0,
+  "title": "Folio",
+  "viewport": [
+    900.0,
+    720.0
+  ],
+  "warnings": []
+}

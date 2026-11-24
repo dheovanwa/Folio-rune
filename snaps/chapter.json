@@ -1,0 +1,1703 @@
+{
+  "accessibility": {
+    "bounds": [
+      0.0,
+      0.0,
+      900.0,
+      720.0
+    ],
+    "children": [
+      {
+        "bounds": [
+          0.0,
+          0.0,
+          900.0,
+          720.0
+        ],
+        "children": [
+          {
+            "bounds": [
+              0.0,
+              0.0,
+              900.0,
+              720.0
+            ],
+            "children": [
+              {
+                "bounds": [
+                  0.0,
+                  0.0,
+                  900.0,
+                  720.0
+                ],
+                "children": [
+                  {
+                    "bounds": [
+                      0.0,
+                      56.0,
+                      900.0,
+                      664.0
+                    ],
+                    "children": [
+                      {
+                        "bounds": [
+                          0.0,
+                          56.0,
+                          900.0,
+                          566.0
+                        ],
+                        "children": [
+                          {
+                            "bounds": [
+                              385.7,
+                              228.0,
+                              128.6,
+                              61.6
+                            ],
+                            "key": "wordmark",
+                            "name": "Folio",
+                            "role": "label"
+                          },
+                          {
+                            "bounds": [
+                              238.9,
+                              309.6,
+                              422.2,
+                              22.5
+                            ],
+                            "key": "tagline",
+                            "name": "Paste a link to read it without the rest of the page.",
+                            "role": "label"
+                          },
+                          {
+                            "bounds": [
+                              189.0,
+                              352.1,
+                              522.0,
+                              44.0
+                            ],
+                            "children": [
+                              {
+                                "actions": [
+                                  "click",
+                                  "focus",
+                                  "set-value",
+                                  "replace-selected-text",
+                                  "set-text-selection"
+                                ],
+                                "bounds": [
+                                  189.0,
+                                  352.1,
+                                  520.0,
+                                  44.0
+                                ],
+                                "key": "address",
+                                "name": "Article address",
+                                "placeholder": "https://example.com/article",
+                                "role": "search-input",
+                                "value": ""
+                              }
+                            ],
+                            "key": "address-row",
+                            "role": "group"
+                          },
+                          {
+                            "actions": [
+                              "click",
+                              "focus"
+                            ],
+                            "bounds": [
+                              368.5,
+                              416.1,
+                              163.1,
+                              34.0
+                            ],
+                            "key": "to-library",
+                            "name": "Open the library",
+                            "role": "button"
+                          }
+                        ],
+                        "key": "blank",
+                        "role": "group"
+                      },
+                      {
+                        "bounds": [
+                          0.0,
+                          622.0,
+                          900.0,
+                          98.0
+                        ],
+                        "children": [
+                          {
+                            "bounds": [
+                              253.9,
+                              642.0,
+                              392.1,
+                              24.0
+                            ],
+                            "children": [
+                              {
+                                "bounds": [
+                                  253.9,
+                                  642.0,
+                                  86.3,
+                                  24.0
+                                ],
+                                "children": [
+                                  {
+                                    "bounds": [
+                                      253.9,
+                                      642.0,
+                                      21.6,
+                                      24.0
+                                    ],
+                                    "children": [
+                                      {
+                                        "bounds": [
+                                          261.9,
+                                          644.6,
+                                          5.6,
+                                          18.8
+                                        ],
+                                        "key": "k",
+                                        "name": "/",
+                                        "role": "label"
+                                      }
+                                    ],
+                                    "key": "keys",
+                                    "role": "group"
+                                  },
+                                  {
+                                    "bounds": [
+                                      283.5,
+                                      644.6,
+                                      56.8,
+                                      18.8
+                                    ],
+                                    "key": "w",
+                                    "name": "address",
+                                    "role": "label"
+                                  }
+                                ],
+                                "key": "hint-/",
+                                "role": "group"
+                              },
+                              {
+                                "bounds": [
+                                  360.3,
+                                  642.0,
+                                  73.5,
+                                  24.0
+                                ],
+                                "children": [
+                                  {
+                                    "bounds": [
+                                      360.3,
+                                      642.0,
+                                      21.1,
+                                      24.0
+                                    ],
+                                    "children": [
+                                      {
+                                        "bounds": [
+                                          368.3,
+                                          644.6,
+                                          5.1,
+                                          18.8
+                                        ],
+                                        "key": "k",
+                                        "name": "t",
+                                        "role": "label"
+                                      }
+                                    ],
+                                    "key": "keys",
+                                    "role": "group"
+                                  },
+                                  {
+                                    "bounds": [
+                                      389.4,
+                                      644.6,
+                                      44.4,
+                                      18.8
+                                    ],
+                                    "key": "w",
+                                    "name": "theme",
+                                    "role": "label"
+                                  }
+                                ],
+                                "key": "hint-t",
+                                "role": "group"
+                              },
+                              {
+                                "bounds": [
+                                  453.8,
+                                  642.0,
+                                  94.2,
+                                  24.0
+                                ],
+                                "children": [
+                                  {
+                                    "bounds": [
+                                      453.8,
+                                      642.0,
+                                      24.7,
+                                      24.0
+                                    ],
+                                    "children": [
+                                      {
+                                        "bounds": [
+                                          461.8,
+                                          644.6,
+                                          8.7,
+                                          18.8
+                                        ],
+                                        "key": "k",
+                                        "name": "c",
+                                        "role": "label"
+                                      }
+                                    ],
+                                    "key": "keys",
+                                    "role": "group"
+                                  },
+                                  {
+                                    "bounds": [
+                                      486.4,
+                                      644.6,
+                                      61.5,
+                                      18.8
+                                    ],
+                                    "key": "w",
+                                    "name": "contents",
+                                    "role": "label"
+                                  }
+                                ],
+                                "key": "hint-c",
+                                "role": "group"
+                              },
+                              {
+                                "bounds": [
+                                  567.9,
+                                  642.0,
+                                  78.1,
+                                  24.0
+                                ],
+                                "children": [
+                                  {
+                                    "bounds": [
+                                      567.9,
+                                      642.0,
+                                      25.3,
+                                      24.0
+                                    ],
+                                    "children": [
+                                      {
+                                        "bounds": [
+                                          575.9,
+                                          644.6,
+                                          9.3,
+                                          18.8
+                                        ],
+                                        "key": "k",
+                                        "name": "g",
+                                        "role": "label"
+                                      }
+                                    ],
+                                    "key": "keys",
+                                    "role": "group"
+                                  },
+                                  {
+                                    "bounds": [
+                                      601.2,
+                                      644.6,
+                                      44.8,
+                                      18.8
+                                    ],
+                                    "key": "w",
+                                    "name": "library",
+                                    "role": "label"
+                                  }
+                                ],
+                                "key": "hint-g",
+                                "role": "group"
+                              }
+                            ],
+                            "key": "row-1",
+                            "role": "group"
+                          },
+                          {
+                            "bounds": [
+                              299.9,
+                              676.0,
+                              300.2,
+                              24.0
+                            ],
+                            "children": [
+                              {
+                                "bounds": [
+                                  299.9,
+                                  676.0,
+                                  87.9,
+                                  24.0
+                                ],
+                                "children": [
+                                  {
+                                    "bounds": [
+                                      299.9,
+                                      676.0,
+                                      41.7,
+                                      24.0
+                                    ],
+                                    "children": [
+                                      {
+                                        "bounds": [
+                                          307.9,
+                                          678.6,
+                                          25.7,
+                                          18.8
+                                        ],
+                                        "key": "k",
+                                        "name": "j / k",
+                                        "role": "label"
+                                      }
+                                    ],
+                                    "key": "keys",
+                                    "role": "group"
+                                  },
+                                  {
+                                    "bounds": [
+                                      349.7,
+                                      678.6,
+                                      38.2,
+                                      18.8
+                                    ],
+                                    "key": "w",
+                                    "name": "scroll",
+                                    "role": "label"
+                                  }
+                                ],
+                                "key": "hint-j / k",
+                                "role": "group"
+                              },
+                              {
+                                "bounds": [
+                                  407.8,
+                                  676.0,
+                                  88.2,
+                                  24.0
+                                ],
+                                "children": [
+                                  {
+                                    "bounds": [
+                                      407.8,
+                                      676.0,
+                                      24.1,
+                                      24.0
+                                    ],
+                                    "children": [
+                                      {
+                                        "bounds": [
+                                          415.8,
+                                          678.6,
+                                          8.1,
+                                          18.8
+                                        ],
+                                        "key": "k",
+                                        "name": "s",
+                                        "role": "label"
+                                      }
+                                    ],
+                                    "key": "keys",
+                                    "role": "group"
+                                  },
+                                  {
+                                    "bounds": [
+                                      439.9,
+                                      678.6,
+                                      56.1,
+                                      18.8
+                                    ],
+                                    "key": "w",
+                                    "name": "settings",
+                                    "role": "label"
+                                  }
+                                ],
+                                "key": "hint-s",
+                                "role": "group"
+                              },
+                              {
+                                "bounds": [
+                                  516.0,
+                                  676.0,
+                                  84.1,
+                                  24.0
+                                ],
+                                "children": [
+                                  {
+                                    "bounds": [
+                                      516.0,
+                                      676.0,
+                                      41.6,
+                                      24.0
+                                    ],
+                                    "children": [
+                                      {
+                                        "bounds": [
+                                          524.0,
+                                          678.6,
+                                          25.6,
+                                          18.8
+                                        ],
+                                        "key": "k",
+                                        "name": "esc",
+                                        "role": "label"
+                                      }
+                                    ],
+                                    "key": "keys",
+                                    "role": "group"
+                                  },
+                                  {
+                                    "bounds": [
+                                      565.5,
+                                      678.6,
+                                      34.6,
+                                      18.8
+                                    ],
+                                    "key": "w",
+                                    "name": "back",
+                                    "role": "label"
+                                  }
+                                ],
+                                "key": "hint-esc",
+                                "role": "group"
+                              }
+                            ],
+                            "key": "row-2",
+                            "role": "group"
+                          }
+                        ],
+                        "key": "shortcuts",
+                        "role": "group"
+                      }
+                    ],
+                    "key": "blank-surface",
+                    "role": "group"
+                  }
+                ],
+                "key": "surface",
+                "role": "group"
+              }
+            ],
+            "key": "window",
+            "role": "window"
+          },
+          {
+            "bounds": [
+              0.0,
+              0.0,
+              900.0,
+              56.0
+            ],
+            "children": [
+              {
+                "bounds": [
+                  0.0,
+                  0.0,
+                  900.0,
+                  55.5
+                ],
+                "children": [
+                  {
+                    "bounds": [
+                      20.0,
+                      15.3,
+                      45.9,
+                      25.0
+                    ],
+                    "children": [
+                      {
+                        "bounds": [
+                          20.0,
+                          15.3,
+                          45.9,
+                          25.0
+                        ],
+                        "key": "title-text",
+                        "name": "Folio",
+                        "role": "label"
+                      }
+                    ],
+                    "key": "title",
+                    "role": "group"
+                  },
+                  {
+                    "bounds": [
+                      733.2,
+                      11.8,
+                      146.8,
+                      32.0
+                    ],
+                    "children": [
+                      {
+                        "actions": [
+                          "click",
+                          "focus"
+                        ],
+                        "bounds": [
+                          733.2,
+                          11.8,
+                          91.3,
+                          32.0
+                        ],
+                        "key": "library",
+                        "name": "Library",
+                        "role": "button"
+                      },
+                      {
+                        "actions": [
+                          "click",
+                          "focus"
+                        ],
+                        "bounds": [
+                          830.5,
+                          11.8,
+                          49.5,
+                          32.0
+                        ],
+                        "key": "settings",
+                        "name": "Aa",
+                        "role": "button"
+                      }
+                    ],
+                    "key": "controls",
+                    "role": "group"
+                  }
+                ],
+                "key": "titlebar-row",
+                "role": "group"
+              }
+            ],
+            "key": "titlebar",
+            "role": "group"
+          }
+        ],
+        "key": "root",
+        "role": "group"
+      },
+      {
+        "bounds": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "role": "status",
+        "states": [
+          "live-polite"
+        ]
+      }
+    ],
+    "name": "Folio",
+    "role": "window"
+  },
+  "anim_t": 0.0,
+  "animating": false,
+  "dark_system": true,
+  "elements": [
+    {
+      "blur": 0.0,
+      "fill": "#161616ff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "root",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        720.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#161616ff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "window",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        720.0
+      ],
+      "role": "window",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "surface",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        720.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#161616ff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "blank-surface",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface",
+      "rect": [
+        0.0,
+        56.0,
+        900.0,
+        664.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "blank",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/blank",
+      "rect": [
+        0.0,
+        56.0,
+        900.0,
+        566.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#e4e4e4ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "wordmark",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/blank/wordmark",
+      "rect": [
+        385.69,
+        227.95,
+        128.63,
+        61.6
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Folio"
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "tagline",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/blank/tagline",
+      "rect": [
+        238.9,
+        309.55,
+        422.21,
+        22.5
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Paste a link to read it without the rest of the page."
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "address-row",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/blank/address-row",
+      "rect": [
+        189.0,
+        352.05,
+        522.0,
+        44.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#ffffffff",
+      "fill": "#3d3d3dff",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "address",
+      "label": "Article address",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/blank/address-row/address",
+      "rect": [
+        189.0,
+        352.05,
+        520.0,
+        44.0
+      ],
+      "role": "searchbox",
+      "scale": 1.0,
+      "text": ""
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "to-library",
+      "label": "Open the library",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/blank/to-library",
+      "rect": [
+        368.47,
+        416.05,
+        163.07,
+        34.0
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#5dade2ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "label",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/blank/to-library/label",
+      "rect": [
+        382.47,
+        422.43,
+        135.07,
+        21.25
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Library · 3 saved"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "shortcuts",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts",
+      "rect": [
+        0.0,
+        622.0,
+        900.0,
+        98.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "row-1",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-1",
+      "rect": [
+        253.95,
+        642.0,
+        392.11,
+        24.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "hint-/",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-1/hint-/",
+      "rect": [
+        253.95,
+        642.0,
+        86.32,
+        24.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#3d3d3dff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "keys",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-1/hint-//keys",
+      "rect": [
+        253.95,
+        642.0,
+        21.55,
+        24.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "k",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-1/hint-//keys/k",
+      "rect": [
+        261.95,
+        644.63,
+        5.55,
+        18.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "/"
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "w",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-1/hint-//w",
+      "rect": [
+        283.49,
+        644.63,
+        56.77,
+        18.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "address"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "hint-t",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-1/hint-t",
+      "rect": [
+        360.27,
+        642.0,
+        73.52,
+        24.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#3d3d3dff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "keys",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-1/hint-t/keys",
+      "rect": [
+        360.27,
+        642.0,
+        21.11,
+        24.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "k",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-1/hint-t/keys/k",
+      "rect": [
+        368.27,
+        644.63,
+        5.11,
+        18.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "t"
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "w",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-1/hint-t/w",
+      "rect": [
+        389.38,
+        644.63,
+        44.41,
+        18.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "theme"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "hint-c",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-1/hint-c",
+      "rect": [
+        453.78,
+        642.0,
+        94.14,
+        24.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#3d3d3dff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "keys",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-1/hint-c/keys",
+      "rect": [
+        453.78,
+        642.0,
+        24.66,
+        24.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "k",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-1/hint-c/keys/k",
+      "rect": [
+        461.78,
+        644.63,
+        8.66,
+        18.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "c"
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "w",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-1/hint-c/w",
+      "rect": [
+        486.45,
+        644.63,
+        61.48,
+        18.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "contents"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "hint-g",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-1/hint-g",
+      "rect": [
+        567.92,
+        642.0,
+        78.13,
+        24.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#3d3d3dff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "keys",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-1/hint-g/keys",
+      "rect": [
+        567.92,
+        642.0,
+        25.3,
+        24.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "k",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-1/hint-g/keys/k",
+      "rect": [
+        575.92,
+        644.63,
+        9.3,
+        18.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "g"
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "w",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-1/hint-g/w",
+      "rect": [
+        601.22,
+        644.63,
+        44.84,
+        18.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "library"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "row-2",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-2",
+      "rect": [
+        299.93,
+        676.0,
+        300.14,
+        24.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "hint-j / k",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-2/hint-j / k",
+      "rect": [
+        299.93,
+        676.0,
+        87.86,
+        24.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#3d3d3dff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "keys",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-2/hint-j / k/keys",
+      "rect": [
+        299.93,
+        676.0,
+        41.71,
+        24.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "k",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-2/hint-j / k/keys/k",
+      "rect": [
+        307.93,
+        678.63,
+        25.71,
+        18.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "j / k"
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "w",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-2/hint-j / k/w",
+      "rect": [
+        349.64,
+        678.63,
+        38.15,
+        18.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "scroll"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "hint-s",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-2/hint-s",
+      "rect": [
+        407.79,
+        676.0,
+        88.17,
+        24.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#3d3d3dff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "keys",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-2/hint-s/keys",
+      "rect": [
+        407.79,
+        676.0,
+        24.08,
+        24.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "k",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-2/hint-s/keys/k",
+      "rect": [
+        415.79,
+        678.63,
+        8.08,
+        18.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "s"
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "w",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-2/hint-s/w",
+      "rect": [
+        439.87,
+        678.63,
+        56.09,
+        18.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "settings"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "hint-esc",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-2/hint-esc",
+      "rect": [
+        515.96,
+        676.0,
+        84.11,
+        24.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#3d3d3dff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "keys",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-2/hint-esc/keys",
+      "rect": [
+        515.96,
+        676.0,
+        41.55,
+        24.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "k",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-2/hint-esc/keys/k",
+      "rect": [
+        523.96,
+        678.63,
+        25.55,
+        18.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "esc"
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "w",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/blank-surface/shortcuts/row-2/hint-esc/w",
+      "rect": [
+        565.51,
+        678.63,
+        34.56,
+        18.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "back"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#1c1c1cff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "titlebar",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        56.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "titlebar-row",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        55.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "title",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/title",
+      "rect": [
+        20.0,
+        15.25,
+        45.94,
+        25.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#e4e4e4ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "title-text",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/title/title-text",
+      "rect": [
+        20.0,
+        15.25,
+        45.94,
+        25.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Folio"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "controls",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls",
+      "rect": [
+        733.2,
+        11.75,
+        146.8,
+        32.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "library",
+      "label": "Library",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/library",
+      "rect": [
+        733.2,
+        11.75,
+        91.27,
+        32.0
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#e4e4e4ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "label",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/library/label",
+      "rect": [
+        745.2,
+        15.25,
+        67.27,
+        25.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Library"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "settings",
+      "label": "Aa",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/settings",
+      "rect": [
+        830.46,
+        11.75,
+        49.54,
+        32.0
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#e4e4e4ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "label",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/settings/label",
+      "rect": [
+        842.46,
+        15.25,
+        25.54,
+        25.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Aa"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#e4e4e424",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "divider",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/divider",
+      "rect": [
+        0.0,
+        55.5,
+        900.0,
+        0.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    }
+  ],
+  "reduced_motion": false,
+  "scale": 2.0,
+  "t": 0.0,
+  "time_scale": 1.0,
+  "title": "Folio",
+  "viewport": [
+    900.0,
+    720.0
+  ],
+  "warnings": []
+}

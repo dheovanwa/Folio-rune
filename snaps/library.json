@@ -1,0 +1,1494 @@
+{
+  "accessibility": {
+    "bounds": [
+      0.0,
+      0.0,
+      900.0,
+      720.0
+    ],
+    "children": [
+      {
+        "bounds": [
+          0.0,
+          0.0,
+          900.0,
+          720.0
+        ],
+        "children": [
+          {
+            "bounds": [
+              0.0,
+              0.0,
+              900.0,
+              720.0
+            ],
+            "children": [
+              {
+                "bounds": [
+                  0.0,
+                  0.0,
+                  900.0,
+                  720.0
+                ],
+                "children": [
+                  {
+                    "bounds": [
+                      0.0,
+                      56.0,
+                      900.0,
+                      664.0
+                    ],
+                    "children": [
+                      {
+                        "bounds": [
+                          0.0,
+                          56.0,
+                          900.0,
+                          52.0
+                        ],
+                        "children": [
+                          {
+                            "bounds": [
+                              24.0,
+                              69.5,
+                              68.3,
+                              25.0
+                            ],
+                            "key": "title",
+                            "name": "Library",
+                            "role": "label"
+                          },
+                          {
+                            "actions": [
+                              "click",
+                              "focus"
+                            ],
+                            "bounds": [
+                              817.5,
+                              67.0,
+                              58.5,
+                              30.0
+                            ],
+                            "key": "new",
+                            "name": "New article",
+                            "role": "button"
+                          }
+                        ],
+                        "key": "library-head",
+                        "role": "group"
+                      },
+                      {
+                        "actions": [
+                          "scroll-up",
+                          "scroll-down",
+                          "set-scroll-offset"
+                        ],
+                        "bounds": [
+                          0.0,
+                          108.5,
+                          900.0,
+                          611.5
+                        ],
+                        "children": [
+                          {
+                            "actions": [
+                              "scroll-into-view"
+                            ],
+                            "bounds": [
+                              12.0,
+                              120.5,
+                              876.0,
+                              438.5
+                            ],
+                            "children": [
+                              {
+                                "actions": [
+                                  "click",
+                                  "focus",
+                                  "scroll-into-view"
+                                ],
+                                "bounds": [
+                                  12.0,
+                                  120.5,
+                                  876.0,
+                                  84.5
+                                ],
+                                "key": "entry-https://example.com/the-quiet-page",
+                                "name": "The Quiet Page",
+                                "role": "button"
+                              },
+                              {
+                                "actions": [
+                                  "click",
+                                  "focus",
+                                  "scroll-into-view"
+                                ],
+                                "bounds": [
+                                  12.0,
+                                  209.0,
+                                  876.0,
+                                  84.5
+                                ],
+                                "key": "entry-https://example.com/against-the-scroll",
+                                "name": "Against the Infinite Scroll",
+                                "role": "button"
+                              },
+                              {
+                                "actions": [
+                                  "click",
+                                  "focus",
+                                  "scroll-into-view"
+                                ],
+                                "bounds": [
+                                  12.0,
+                                  297.5,
+                                  876.0,
+                                  84.5
+                                ],
+                                "key": "entry-https://animeanyway.com/y3v5/ch1",
+                                "name": "Chapter 1: The Center of Attention",
+                                "role": "button"
+                              },
+                              {
+                                "actions": [
+                                  "click",
+                                  "focus",
+                                  "scroll-into-view"
+                                ],
+                                "bounds": [
+                                  12.0,
+                                  386.0,
+                                  876.0,
+                                  84.5
+                                ],
+                                "key": "entry-https://animeanyway.com/y3v5/ch5",
+                                "name": "Chapter 5: Amasawa in Action",
+                                "role": "button"
+                              },
+                              {
+                                "actions": [
+                                  "click",
+                                  "focus",
+                                  "scroll-into-view"
+                                ],
+                                "bounds": [
+                                  12.0,
+                                  474.5,
+                                  876.0,
+                                  84.5
+                                ],
+                                "key": "entry-https://animeanyway.com/y3v5/ch4",
+                                "name": "Chapter 4: The Present, the Past, and the Future",
+                                "role": "button"
+                              }
+                            ],
+                            "key": "library-list",
+                            "role": "group"
+                          }
+                        ],
+                        "key": "library-scroll",
+                        "role": "scroll-view",
+                        "scroll": [
+                          0.0,
+                          0.0,
+                          0.0
+                        ],
+                        "states": [
+                          "clips"
+                        ]
+                      }
+                    ],
+                    "key": "library-surface",
+                    "role": "group"
+                  }
+                ],
+                "key": "surface",
+                "role": "group"
+              }
+            ],
+            "key": "window",
+            "role": "window"
+          },
+          {
+            "bounds": [
+              0.0,
+              0.0,
+              900.0,
+              56.0
+            ],
+            "children": [
+              {
+                "bounds": [
+                  0.0,
+                  0.0,
+                  900.0,
+                  55.5
+                ],
+                "children": [
+                  {
+                    "bounds": [
+                      20.0,
+                      15.3,
+                      68.3,
+                      25.0
+                    ],
+                    "children": [
+                      {
+                        "bounds": [
+                          20.0,
+                          15.3,
+                          68.3,
+                          25.0
+                        ],
+                        "key": "title-text",
+                        "name": "Library",
+                        "role": "label"
+                      }
+                    ],
+                    "key": "title",
+                    "role": "group"
+                  },
+                  {
+                    "bounds": [
+                      733.2,
+                      11.8,
+                      146.8,
+                      32.0
+                    ],
+                    "children": [
+                      {
+                        "actions": [
+                          "click",
+                          "focus"
+                        ],
+                        "bounds": [
+                          733.2,
+                          11.8,
+                          91.3,
+                          32.0
+                        ],
+                        "key": "library",
+                        "name": "Library",
+                        "role": "button"
+                      },
+                      {
+                        "actions": [
+                          "click",
+                          "focus"
+                        ],
+                        "bounds": [
+                          830.5,
+                          11.8,
+                          49.5,
+                          32.0
+                        ],
+                        "key": "settings",
+                        "name": "Aa",
+                        "role": "button"
+                      }
+                    ],
+                    "key": "controls",
+                    "role": "group"
+                  }
+                ],
+                "key": "titlebar-row",
+                "role": "group"
+              }
+            ],
+            "key": "titlebar",
+            "role": "group"
+          }
+        ],
+        "key": "root",
+        "role": "group"
+      },
+      {
+        "bounds": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "role": "status",
+        "states": [
+          "live-polite"
+        ]
+      }
+    ],
+    "name": "Folio",
+    "role": "window"
+  },
+  "anim_t": 0.0,
+  "animating": false,
+  "dark_system": true,
+  "elements": [
+    {
+      "blur": 0.0,
+      "fill": "#161616ff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "root",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        720.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#161616ff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "window",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        720.0
+      ],
+      "role": "window",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "surface",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        720.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#161616ff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "library-surface",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface",
+      "rect": [
+        0.0,
+        56.0,
+        900.0,
+        664.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "library-head",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-head",
+      "rect": [
+        0.0,
+        56.0,
+        900.0,
+        52.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#e4e4e4ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "title",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-head/title",
+      "rect": [
+        24.0,
+        69.5,
+        68.28,
+        25.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Library"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "new",
+      "label": "New article",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-head/new",
+      "rect": [
+        817.5,
+        67.0,
+        58.5,
+        30.0
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#5dade2ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "label",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-head/new/label",
+      "rect": [
+        829.5,
+        72.0,
+        34.5,
+        20.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "New"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#e4e4e424",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "divider",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/divider",
+      "rect": [
+        0.0,
+        108.0,
+        900.0,
+        0.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "library-scroll",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll",
+      "rect": [
+        0.0,
+        108.5,
+        900.0,
+        611.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "library-list",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list",
+      "rect": [
+        12.0,
+        120.5,
+        876.0,
+        438.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "entry-https://example.com/the-quiet-page",
+      "label": "The Quiet Page",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://example.com/the-quiet-page",
+      "rect": [
+        12.0,
+        120.5,
+        876.0,
+        84.5
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-body",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://example.com/the-quiet-page/entry-body",
+      "rect": [
+        28.0,
+        134.5,
+        844.0,
+        56.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#e4e4e4ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-title",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://example.com/the-quiet-page/entry-body/entry-title",
+      "rect": [
+        28.0,
+        134.5,
+        844.0,
+        23.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "The Quiet Page"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-meta",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://example.com/the-quiet-page/entry-body/entry-meta",
+      "rect": [
+        28.0,
+        164.25,
+        844.0,
+        18.75
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "meta",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://example.com/the-quiet-page/entry-body/entry-meta/meta",
+      "rect": [
+        28.0,
+        164.25,
+        215.05,
+        18.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Example · just now · 34% read"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#e4e4e424",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-track",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://example.com/the-quiet-page/entry-body/entry-track",
+      "rect": [
+        28.0,
+        189.0,
+        844.0,
+        2.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#5dade2ff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-fill",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://example.com/the-quiet-page/entry-body/entry-track/entry-fill",
+      "rect": [
+        28.0,
+        189.0,
+        286.96,
+        2.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "entry-https://example.com/against-the-scroll",
+      "label": "Against the Infinite Scroll",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://example.com/against-the-scroll",
+      "rect": [
+        12.0,
+        209.0,
+        876.0,
+        84.5
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-body",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://example.com/against-the-scroll/entry-body",
+      "rect": [
+        28.0,
+        223.0,
+        844.0,
+        56.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#e4e4e4ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-title",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://example.com/against-the-scroll/entry-body/entry-title",
+      "rect": [
+        28.0,
+        223.0,
+        844.0,
+        23.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Against the Infinite Scroll"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-meta",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://example.com/against-the-scroll/entry-body/entry-meta",
+      "rect": [
+        28.0,
+        252.75,
+        844.0,
+        18.75
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "meta",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://example.com/against-the-scroll/entry-body/entry-meta/meta",
+      "rect": [
+        28.0,
+        252.75,
+        205.56,
+        18.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Example · just now · 0% read"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#e4e4e424",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-track",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://example.com/against-the-scroll/entry-body/entry-track",
+      "rect": [
+        28.0,
+        277.5,
+        844.0,
+        2.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#5dade2ff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-fill",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://example.com/against-the-scroll/entry-body/entry-track/entry-fill",
+      "rect": [
+        28.0,
+        277.5,
+        0.0,
+        2.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "entry-https://animeanyway.com/y3v5/ch1",
+      "label": "Chapter 1: The Center of Attention",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch1",
+      "rect": [
+        12.0,
+        297.5,
+        876.0,
+        84.5
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-body",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch1/entry-body",
+      "rect": [
+        28.0,
+        311.5,
+        844.0,
+        56.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#e4e4e4ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-title",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch1/entry-body/entry-title",
+      "rect": [
+        28.0,
+        311.5,
+        844.0,
+        23.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Chapter 1: The Center of Attention"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-meta",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch1/entry-body/entry-meta",
+      "rect": [
+        28.0,
+        341.25,
+        844.0,
+        18.75
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "meta",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch1/entry-body/entry-meta/meta",
+      "rect": [
+        28.0,
+        341.25,
+        119.19,
+        18.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "1d ago · 0% read"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#e4e4e424",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-track",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch1/entry-body/entry-track",
+      "rect": [
+        28.0,
+        366.0,
+        844.0,
+        2.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#5dade2ff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-fill",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch1/entry-body/entry-track/entry-fill",
+      "rect": [
+        28.0,
+        366.0,
+        0.0,
+        2.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "entry-https://animeanyway.com/y3v5/ch5",
+      "label": "Chapter 5: Amasawa in Action",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch5",
+      "rect": [
+        12.0,
+        386.0,
+        876.0,
+        84.5
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-body",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch5/entry-body",
+      "rect": [
+        28.0,
+        400.0,
+        844.0,
+        56.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#e4e4e4ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-title",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch5/entry-body/entry-title",
+      "rect": [
+        28.0,
+        400.0,
+        844.0,
+        23.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Chapter 5: Amasawa in Action"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-meta",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch5/entry-body/entry-meta",
+      "rect": [
+        28.0,
+        429.75,
+        844.0,
+        18.75
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "meta",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch5/entry-body/entry-meta/meta",
+      "rect": [
+        28.0,
+        429.75,
+        119.19,
+        18.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "1d ago · 0% read"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#e4e4e424",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-track",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch5/entry-body/entry-track",
+      "rect": [
+        28.0,
+        454.5,
+        844.0,
+        2.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#5dade2ff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-fill",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch5/entry-body/entry-track/entry-fill",
+      "rect": [
+        28.0,
+        454.5,
+        0.0,
+        2.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "entry-https://animeanyway.com/y3v5/ch4",
+      "label": "Chapter 4: The Present, the Past, and the Future",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch4",
+      "rect": [
+        12.0,
+        474.5,
+        876.0,
+        84.5
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-body",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch4/entry-body",
+      "rect": [
+        28.0,
+        488.5,
+        844.0,
+        56.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#e4e4e4ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-title",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch4/entry-body/entry-title",
+      "rect": [
+        28.0,
+        488.5,
+        844.0,
+        23.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Chapter 4: The Present, the Past, and the Future"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-meta",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch4/entry-body/entry-meta",
+      "rect": [
+        28.0,
+        518.25,
+        844.0,
+        18.75
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#9a9a9aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "meta",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch4/entry-body/entry-meta/meta",
+      "rect": [
+        28.0,
+        518.25,
+        119.19,
+        18.75
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "1d ago · 0% read"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#e4e4e424",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-track",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch4/entry-body/entry-track",
+      "rect": [
+        28.0,
+        543.0,
+        844.0,
+        2.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#5dade2ff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "entry-fill",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/library-surface/library-scroll/library-list/entry-https://animeanyway.com/y3v5/ch4/entry-body/entry-track/entry-fill",
+      "rect": [
+        28.0,
+        543.0,
+        0.0,
+        2.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#1c1c1cff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "titlebar",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        56.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "titlebar-row",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        55.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "title",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/title",
+      "rect": [
+        20.0,
+        15.25,
+        68.28,
+        25.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#e4e4e4ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "title-text",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/title/title-text",
+      "rect": [
+        20.0,
+        15.25,
+        68.28,
+        25.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Library"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "controls",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls",
+      "rect": [
+        733.2,
+        11.75,
+        146.8,
+        32.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#e4e4e414",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "library",
+      "label": "Library",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/library",
+      "rect": [
+        733.2,
+        11.75,
+        91.27,
+        32.0
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#5dade2ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "label",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/library/label",
+      "rect": [
+        745.2,
+        15.25,
+        67.27,
+        25.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Library"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "settings",
+      "label": "Aa",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/settings",
+      "rect": [
+        830.46,
+        11.75,
+        49.54,
+        32.0
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#e4e4e4ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "label",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/settings/label",
+      "rect": [
+        842.46,
+        15.25,
+        25.54,
+        25.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Aa"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#e4e4e424",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "divider",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/divider",
+      "rect": [
+        0.0,
+        55.5,
+        900.0,
+        0.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    }
+  ],
+  "reduced_motion": false,
+  "scale": 2.0,
+  "t": 0.0,
+  "time_scale": 1.0,
+  "title": "Folio",
+  "viewport": [
+    900.0,
+    720.0
+  ],
+  "warnings": []
+}

@@ -1,0 +1,1976 @@
+{
+  "accessibility": {
+    "bounds": [
+      0.0,
+      0.0,
+      900.0,
+      720.0
+    ],
+    "children": [
+      {
+        "bounds": [
+          0.0,
+          0.0,
+          900.0,
+          720.0
+        ],
+        "children": [
+          {
+            "bounds": [
+              0.0,
+              0.0,
+              900.0,
+              720.0
+            ],
+            "children": [
+              {
+                "bounds": [
+                  0.0,
+                  0.0,
+                  900.0,
+                  720.0
+                ],
+                "children": [
+                  {
+                    "bounds": [
+                      0.0,
+                      56.0,
+                      900.0,
+                      664.0
+                    ],
+                    "children": [
+                      {
+                        "actions": [
+                          "click",
+                          "focus",
+                          "scroll-up",
+                          "scroll-down",
+                          "set-scroll-offset"
+                        ],
+                        "bounds": [
+                          0.0,
+                          56.0,
+                          888.0,
+                          664.0
+                        ],
+                        "children": [
+                          {
+                            "actions": [
+                              "scroll-into-view"
+                            ],
+                            "bounds": [
+                              0.0,
+                              56.0,
+                              888.0,
+                              2276.3
+                            ],
+                            "children": [
+                              {
+                                "actions": [
+                                  "scroll-into-view"
+                                ],
+                                "bounds": [
+                                  200.0,
+                                  96.0,
+                                  488.0,
+                                  2196.3
+                                ],
+                                "children": [
+                                  {
+                                    "actions": [
+                                      "scroll-into-view"
+                                    ],
+                                    "bounds": [
+                                      200.0,
+                                      96.0,
+                                      488.0,
+                                      90.8
+                                    ],
+                                    "children": [
+                                      {
+                                        "actions": [
+                                          "scroll-into-view"
+                                        ],
+                                        "bounds": [
+                                          200.0,
+                                          96.0,
+                                          488.0,
+                                          59.5
+                                        ],
+                                        "key": "headline",
+                                        "name": "The Quiet Page",
+                                        "role": "label"
+                                      },
+                                      {
+                                        "actions": [
+                                          "scroll-into-view"
+                                        ],
+                                        "bounds": [
+                                          200.0,
+                                          165.5,
+                                          488.0,
+                                          21.3
+                                        ],
+                                        "children": [
+                                          {
+                                            "actions": [
+                                              "scroll-into-view"
+                                            ],
+                                            "bounds": [
+                                              200.0,
+                                              165.5,
+                                              142.0,
+                                              21.3
+                                            ],
+                                            "key": "meta",
+                                            "name": "Dheo · 2 min read",
+                                            "role": "label"
+                                          }
+                                        ],
+                                        "key": "byline",
+                                        "role": "group"
+                                      }
+                                    ],
+                                    "key": "article-head",
+                                    "role": "group"
+                                  },
+                                  {
+                                    "actions": [
+                                      "scroll-into-view"
+                                    ],
+                                    "bounds": [
+                                      200.0,
+                                      198.8,
+                                      488.0,
+                                      2093.6
+                                    ],
+                                    "children": [
+                                      {
+                                        "actions": [
+                                          "scroll-into-view"
+                                        ],
+                                        "bounds": [
+                                          200.0,
+                                          198.8,
+                                          488.0,
+                                          72.3
+                                        ],
+                                        "children": [
+                                          {
+                                            "actions": [
+                                              "scroll-into-view"
+                                            ],
+                                            "bounds": [
+                                              200.0,
+                                              216.8,
+                                              488.0,
+                                              54.3
+                                            ],
+                                            "key": "h",
+                                            "name": "The Quiet Page",
+                                            "role": "label"
+                                          }
+                                        ],
+                                        "key": "block-0",
+                                        "position": 1,
+                                        "role": "group"
+                                      },
+                                      {
+                                        "actions": [
+                                          "focus",
+                                          "scroll-into-view"
+                                        ],
+                                        "bounds": [
+                                          200.0,
+                                          303.0,
+                                          488.0,
+                                          126.0
+                                        ],
+                                        "children": [
+                                          {
+                                            "actions": [
+                                              "click",
+                                              "focus"
+                                            ],
+                                            "bounds": [
+                                              279.2,
+                                              345.0,
+                                              335.2,
+                                              42.0
+                                            ],
+                                            "key": "https://example.com/readers",
+                                            "name": "Every reader worth keeping",
+                                            "role": "link",
+                                            "url": "https://example.com/readers"
+                                          }
+                                        ],
+                                        "key": "block-1",
+                                        "name": "Reading is a slow activity, and that is the point. Every reader worth keeping gives the words room.",
+                                        "position": 2,
+                                        "role": "label"
+                                      },
+                                      {
+                                        "actions": [
+                                          "scroll-into-view"
+                                        ],
+                                        "bounds": [
+                                          200.0,
+                                          461.0,
+                                          488.0,
+                                          336.0
+                                        ],
+                                        "key": "block-2",
+                                        "name": "A quiet page is not an empty one. It is a page that has made up its mind about what it is for, and then removed everything else. The margins do most of the work: they hold the text away from the edges of the window the way a frame holds a picture, and in doing so they tell you where to look.",
+                                        "position": 3,
+                                        "role": "label"
+                                      },
+                                      {
+                                        "actions": [
+                                          "scroll-into-view"
+                                        ],
+                                        "bounds": [
+                                          200.0,
+                                          829.0,
+                                          488.0,
+                                          63.5
+                                        ],
+                                        "children": [
+                                          {
+                                            "actions": [
+                                              "scroll-into-view"
+                                            ],
+                                            "bounds": [
+                                              200.0,
+                                              847.0,
+                                              488.0,
+                                              45.5
+                                            ],
+                                            "key": "h",
+                                            "name": "Measure",
+                                            "role": "label"
+                                          }
+                                        ],
+                                        "key": "block-3",
+                                        "position": 4,
+                                        "role": "group"
+                                      },
+                                      {
+                                        "actions": [
+                                          "scroll-into-view"
+                                        ],
+                                        "bounds": [
+                                          200.0,
+                                          924.5,
+                                          488.0,
+                                          294.0
+                                        ],
+                                        "key": "block-4",
+                                        "name": "Typography is the whole interface here. There is no toolbar to reach for, no chrome to decode, no icon that needs a tooltip. The size of the letters, the space between the lines, and the length of the measure are the only controls that matter, and they are all set once and then left alone.",
+                                        "position": 5,
+                                        "role": "label"
+                                      },
+                                      {
+                                        "actions": [
+                                          "scroll-into-view"
+                                        ],
+                                        "bounds": [
+                                          200.0,
+                                          1250.5,
+                                          488.0,
+                                          84.0
+                                        ],
+                                        "children": [
+                                          {
+                                            "actions": [
+                                              "scroll-into-view"
+                                            ],
+                                            "bounds": [
+                                              200.0,
+                                              1250.5,
+                                              3.0,
+                                              84.0
+                                            ],
+                                            "key": "quote-rule",
+                                            "role": "group"
+                                          },
+                                          {
+                                            "actions": [
+                                              "scroll-into-view"
+                                            ],
+                                            "bounds": [
+                                              219.0,
+                                              1250.5,
+                                              469.0,
+                                              84.0
+                                            ],
+                                            "children": [
+                                              {
+                                                "actions": [
+                                                  "scroll-into-view"
+                                                ],
+                                                "bounds": [
+                                                  219.0,
+                                                  1250.5,
+                                                  469.0,
+                                                  84.0
+                                                ],
+                                                "key": "quote-body",
+                                                "name": "Attention is the rarest and purest form of generosity.",
+                                                "role": "label"
+                                              }
+                                            ],
+                                            "key": "quote-text",
+                                            "role": "group"
+                                          }
+                                        ],
+                                        "key": "block-5",
+                                        "position": 6,
+                                        "role": "group"
+                                      },
+                                      {
+                                        "actions": [
+                                          "scroll-into-view"
+                                        ],
+                                        "bounds": [
+                                          200.0,
+                                          1366.5,
+                                          488.0,
+                                          252.0
+                                        ],
+                                        "key": "block-6",
+                                        "name": "A line of type wants somewhere between sixty and seventy-five characters. Shorter and the eye jumps too often; longer and it loses the next line on the way back. Folio's measure is fixed at seven hundred and twenty points for exactly this reason.",
+                                        "position": 7,
+                                        "role": "label"
+                                      },
+                                      {
+                                        "actions": [
+                                          "scroll-into-view"
+                                        ],
+                                        "bounds": [
+                                          200.0,
+                                          1650.5,
+                                          488.0,
+                                          63.5
+                                        ],
+                                        "children": [
+                                          {
+                                            "actions": [
+                                              "scroll-into-view"
+                                            ],
+                                            "bounds": [
+                                              200.0,
+                                              1668.5,
+                                              488.0,
+                                              45.5
+                                            ],
+                                            "key": "h",
+                                            "name": "Restraint",
+                                            "role": "label"
+                                          }
+                                        ],
+                                        "key": "block-7",
+                                        "position": 8,
+                                        "role": "group"
+                                      },
+                                      {
+                                        "actions": [
+                                          "scroll-into-view"
+                                        ],
+                                        "bounds": [
+                                          200.0,
+                                          1746.0,
+                                          488.0,
+                                          184.0
+                                        ],
+                                        "children": [
+                                          {
+                                            "actions": [
+                                              "scroll-into-view"
+                                            ],
+                                            "bounds": [
+                                              200.0,
+                                              1746.0,
+                                              488.0,
+                                              42.0
+                                            ],
+                                            "children": [
+                                              {
+                                                "actions": [
+                                                  "scroll-into-view"
+                                                ],
+                                                "bounds": [
+                                                  200.0,
+                                                  1746.0,
+                                                  24.0,
+                                                  42.0
+                                                ],
+                                                "key": "marker",
+                                                "name": "•",
+                                                "role": "label"
+                                              },
+                                              {
+                                                "actions": [
+                                                  "scroll-into-view"
+                                                ],
+                                                "bounds": [
+                                                  236.0,
+                                                  1746.0,
+                                                  452.0,
+                                                  42.0
+                                                ],
+                                                "children": [
+                                                  {
+                                                    "actions": [
+                                                      "scroll-into-view"
+                                                    ],
+                                                    "bounds": [
+                                                      236.0,
+                                                      1746.0,
+                                                      452.0,
+                                                      42.0
+                                                    ],
+                                                    "key": "li-0-text",
+                                                    "name": "One column, never two.",
+                                                    "role": "label"
+                                                  }
+                                                ],
+                                                "key": "li-body",
+                                                "role": "group"
+                                              }
+                                            ],
+                                            "key": "li-0",
+                                            "role": "group"
+                                          },
+                                          {
+                                            "actions": [
+                                              "scroll-into-view"
+                                            ],
+                                            "bounds": [
+                                              200.0,
+                                              1796.0,
+                                              488.0,
+                                              42.0
+                                            ],
+                                            "children": [
+                                              {
+                                                "actions": [
+                                                  "scroll-into-view"
+                                                ],
+                                                "bounds": [
+                                                  200.0,
+                                                  1796.0,
+                                                  24.0,
+                                                  42.0
+                                                ],
+                                                "key": "marker",
+                                                "name": "•",
+                                                "role": "label"
+                                              },
+                                              {
+                                                "actions": [
+                                                  "scroll-into-view"
+                                                ],
+                                                "bounds": [
+                                                  236.0,
+                                                  1796.0,
+                                                  452.0,
+                                                  42.0
+                                                ],
+                                                "children": [
+                                                  {
+                                                    "actions": [
+                                                      "scroll-into-view"
+                                                    ],
+                                                    "bounds": [
+                                                      236.0,
+                                                      1796.0,
+                                                      452.0,
+                                                      42.0
+                                                    ],
+                                                    "key": "li-1-text",
+                                                    "name": "Serif for prose, sans for the frame.",
+                                                    "role": "label"
+                                                  }
+                                                ],
+                                                "key": "li-body",
+                                                "role": "group"
+                                              }
+                                            ],
+                                            "key": "li-1",
+                                            "role": "group"
+                                          },
+                                          {
+                                            "actions": [
+                                              "scroll-into-view"
+                                            ],
+                                            "bounds": [
+                                              200.0,
+                                              1846.0,
+                                              488.0,
+                                              84.0
+                                            ],
+                                            "children": [
+                                              {
+                                                "actions": [
+                                                  "scroll-into-view"
+                                                ],
+                                                "bounds": [
+                                                  200.0,
+                                                  1846.0,
+                                                  24.0,
+                                                  42.0
+                                                ],
+                                                "key": "marker",
+                                                "name": "•",
+                                                "role": "label"
+                                              },
+                                              {
+                                                "actions": [
+                                                  "scroll-into-view"
+                                                ],
+                                                "bounds": [
+                                                  236.0,
+                                                  1846.0,
+                                                  452.0,
+                                                  84.0
+                                                ],
+                                                "children": [
+                                                  {
+                                                    "actions": [
+                                                      "scroll-into-view"
+                                                    ],
+                                                    "bounds": [
+                                                      236.0,
+                                                      1846.0,
+                                                      452.0,
+                                                      84.0
+                                                    ],
+                                                    "key": "li-2-text",
+                                                    "name": "A progress bar three points tall, and no more.",
+                                                    "role": "label"
+                                                  }
+                                                ],
+                                                "key": "li-body",
+                                                "role": "group"
+                                              }
+                                            ],
+                                            "key": "li-2",
+                                            "role": "group"
+                                          }
+                                        ],
+                                        "key": "block-8",
+                                        "position": 9,
+                                        "role": "group"
+                                      }
+                                    ],
+                                    "key": "article-rows",
+                                    "role": "group",
+                                    "setSize": 12
+                                  }
+                                ],
+                                "key": "measure",
+                                "role": "group"
+                              }
+                            ],
+                            "key": "article-row",
+                            "role": "group"
+                          }
+                        ],
+                        "key": "article",
+                        "role": "button",
+                        "scroll": [
+                          0.0,
+                          0.0,
+                          1612.3
+                        ],
+                        "states": [
+                          "clips"
+                        ]
+                      }
+                    ],
+                    "key": "article-with-bar",
+                    "role": "group"
+                  }
+                ],
+                "key": "surface",
+                "role": "group"
+              }
+            ],
+            "key": "window",
+            "role": "window"
+          },
+          {
+            "bounds": [
+              0.0,
+              0.0,
+              900.0,
+              56.0
+            ],
+            "children": [
+              {
+                "bounds": [
+                  0.0,
+                  0.0,
+                  900.0,
+                  55.5
+                ],
+                "children": [
+                  {
+                    "bounds": [
+                      20.0,
+                      11.8,
+                      536.7,
+                      32.0
+                    ],
+                    "children": [
+                      {
+                        "actions": [
+                          "click",
+                          "focus"
+                        ],
+                        "bounds": [
+                          20.0,
+                          11.8,
+                          536.7,
+                          32.0
+                        ],
+                        "key": "address",
+                        "name": "Article address",
+                        "role": "group"
+                      }
+                    ],
+                    "key": "title",
+                    "role": "group"
+                  },
+                  {
+                    "bounds": [
+                      556.7,
+                      11.8,
+                      323.3,
+                      32.0
+                    ],
+                    "children": [
+                      {
+                        "actions": [
+                          "click",
+                          "focus"
+                        ],
+                        "bounds": [
+                          556.7,
+                          11.8,
+                          110.6,
+                          32.0
+                        ],
+                        "key": "toc",
+                        "name": "Contents",
+                        "role": "button"
+                      },
+                      {
+                        "actions": [
+                          "click",
+                          "focus"
+                        ],
+                        "bounds": [
+                          673.3,
+                          11.8,
+                          53.9,
+                          32.0
+                        ],
+                        "key": "pin",
+                        "name": "Pin",
+                        "role": "button"
+                      },
+                      {
+                        "actions": [
+                          "click",
+                          "focus"
+                        ],
+                        "bounds": [
+                          733.2,
+                          11.8,
+                          91.3,
+                          32.0
+                        ],
+                        "key": "library",
+                        "name": "Library",
+                        "role": "button"
+                      },
+                      {
+                        "actions": [
+                          "click",
+                          "focus"
+                        ],
+                        "bounds": [
+                          830.5,
+                          11.8,
+                          49.5,
+                          32.0
+                        ],
+                        "key": "settings",
+                        "name": "Aa",
+                        "role": "button"
+                      }
+                    ],
+                    "key": "controls",
+                    "role": "group"
+                  }
+                ],
+                "key": "titlebar-row",
+                "role": "group"
+              }
+            ],
+            "key": "titlebar",
+            "role": "group"
+          }
+        ],
+        "key": "root",
+        "role": "group"
+      },
+      {
+        "bounds": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "role": "status",
+        "states": [
+          "live-polite"
+        ]
+      }
+    ],
+    "name": "Folio",
+    "role": "window"
+  },
+  "anim_t": 0.0,
+  "animating": true,
+  "dark_system": true,
+  "elements": [
+    {
+      "blur": 0.0,
+      "fill": "#faf8f5ff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "root",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        720.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#faf8f5ff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "window",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        720.0
+      ],
+      "role": "window",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "surface",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        720.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "article-with-bar",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar",
+      "rect": [
+        0.0,
+        56.0,
+        900.0,
+        664.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "article",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article",
+      "rect": [
+        0.0,
+        56.0,
+        888.0,
+        664.0
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "article-row",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row",
+      "rect": [
+        0.0,
+        56.0,
+        888.0,
+        2276.31
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "measure",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure",
+      "rect": [
+        200.0,
+        96.0,
+        488.0,
+        2196.31
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "article-head",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-head",
+      "rect": [
+        200.0,
+        96.0,
+        488.0,
+        90.75
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#1a1a1aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "headline",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-head/headline",
+      "rect": [
+        200.0,
+        96.0,
+        488.0,
+        59.5
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "The Quiet Page"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "byline",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-head/byline",
+      "rect": [
+        200.0,
+        165.5,
+        488.0,
+        21.25
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#6b7280ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "meta",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-head/byline/meta",
+      "rect": [
+        200.0,
+        165.5,
+        142.02,
+        21.25
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Dheo · 2 min read"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "article-rows",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows",
+      "rect": [
+        200.0,
+        198.75,
+        488.0,
+        2093.56
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "block-0",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-0",
+      "rect": [
+        200.0,
+        198.75,
+        488.0,
+        72.25
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#1a1a1aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "h",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-0/h",
+      "rect": [
+        200.0,
+        216.75,
+        488.0,
+        54.25
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "The Quiet Page"
+    },
+    {
+      "blur": 0.0,
+      "color": "#1a1a1aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "block-1",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-1",
+      "rect": [
+        200.0,
+        303.0,
+        488.0,
+        126.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Reading is a slow activity, and that is the point. Every reader worth keeping gives the words room."
+    },
+    {
+      "blur": 0.0,
+      "color": "#1a1a1aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "block-2",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-2",
+      "rect": [
+        200.0,
+        461.0,
+        488.0,
+        336.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "A quiet page is not an empty one. It is a page that has made up its mind about what it is for, and then removed everything else. The margins do most of the work: they hold the text away from the edges of the window the way a frame holds a picture, and in doing so they tell you where to look."
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "block-3",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-3",
+      "rect": [
+        200.0,
+        829.0,
+        488.0,
+        63.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#1a1a1aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "h",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-3/h",
+      "rect": [
+        200.0,
+        847.0,
+        488.0,
+        45.5
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Measure"
+    },
+    {
+      "blur": 0.0,
+      "color": "#1a1a1aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "block-4",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-4",
+      "rect": [
+        200.0,
+        924.5,
+        488.0,
+        294.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Typography is the whole interface here. There is no toolbar to reach for, no chrome to decode, no icon that needs a tooltip. The size of the letters, the space between the lines, and the length of the measure are the only controls that matter, and they are all set once and then left alone."
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "block-5",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-5",
+      "rect": [
+        200.0,
+        1250.5,
+        488.0,
+        84.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#3584e48c",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "quote-rule",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-5/quote-rule",
+      "rect": [
+        200.0,
+        1250.5,
+        3.0,
+        84.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "quote-text",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-5/quote-text",
+      "rect": [
+        219.0,
+        1250.5,
+        469.0,
+        84.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#1a1a1aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "quote-body",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-5/quote-text/quote-body",
+      "rect": [
+        219.0,
+        1250.5,
+        469.0,
+        84.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Attention is the rarest and purest form of generosity."
+    },
+    {
+      "blur": 0.0,
+      "color": "#1a1a1aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "block-6",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-6",
+      "rect": [
+        200.0,
+        1366.5,
+        488.0,
+        252.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "A line of type wants somewhere between sixty and seventy-five characters. Shorter and the eye jumps too often; longer and it loses the next line on the way back. Folio's measure is fixed at seven hundred and twenty points for exactly this reason."
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "block-7",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-7",
+      "rect": [
+        200.0,
+        1650.5,
+        488.0,
+        63.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#1a1a1aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "h",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-7/h",
+      "rect": [
+        200.0,
+        1668.5,
+        488.0,
+        45.5
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Restraint"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "block-8",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8",
+      "rect": [
+        200.0,
+        1746.0,
+        488.0,
+        184.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "li-0",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-0",
+      "rect": [
+        200.0,
+        1746.0,
+        488.0,
+        42.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#6b7280ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "marker",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-0/marker",
+      "rect": [
+        200.0,
+        1746.0,
+        24.0,
+        42.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "•"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "li-body",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-0/li-body",
+      "rect": [
+        236.0,
+        1746.0,
+        452.0,
+        42.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#1a1a1aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "li-0-text",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-0/li-body/li-0-text",
+      "rect": [
+        236.0,
+        1746.0,
+        452.0,
+        42.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "One column, never two."
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "li-1",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-1",
+      "rect": [
+        200.0,
+        1796.0,
+        488.0,
+        42.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#6b7280ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "marker",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-1/marker",
+      "rect": [
+        200.0,
+        1796.0,
+        24.0,
+        42.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "•"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "li-body",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-1/li-body",
+      "rect": [
+        236.0,
+        1796.0,
+        452.0,
+        42.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#1a1a1aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "li-1-text",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-1/li-body/li-1-text",
+      "rect": [
+        236.0,
+        1796.0,
+        452.0,
+        42.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Serif for prose, sans for the frame."
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "li-2",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-2",
+      "rect": [
+        200.0,
+        1846.0,
+        488.0,
+        84.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#6b7280ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "marker",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-2/marker",
+      "rect": [
+        200.0,
+        1846.0,
+        24.0,
+        42.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "•"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "li-body",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-2/li-body",
+      "rect": [
+        236.0,
+        1846.0,
+        452.0,
+        84.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#1a1a1aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "li-2-text",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-8/li-2/li-body/li-2-text",
+      "rect": [
+        236.0,
+        1846.0,
+        452.0,
+        84.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "A progress bar three points tall, and no more."
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "scroll-gutter",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/scroll-gutter",
+      "rect": [
+        888.0,
+        56.0,
+        12.0,
+        664.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#6b72801f",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "scroll-track",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/scroll-gutter/scroll-track",
+      "rect": [
+        888.0,
+        56.0,
+        5.0,
+        664.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#6b72808c",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "scroll-thumb",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/scroll-gutter/scroll-thumb",
+      "rect": [
+        891.5,
+        56.0,
+        5.0,
+        32.0
+      ],
+      "role": "group",
+      "scale": 1.0,
+      "target": [
+        888.0,
+        56.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "blur": 0.0,
+      "fill": "#f0ede8ff",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "titlebar",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        56.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "titlebar-row",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row",
+      "rect": [
+        0.0,
+        0.0,
+        900.0,
+        55.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "title",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/title",
+      "rect": [
+        20.0,
+        11.75,
+        536.71,
+        32.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#f4f3f080",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "address",
+      "label": "Article address",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/title/address",
+      "rect": [
+        20.0,
+        11.75,
+        536.71,
+        32.0
+      ],
+      "role": "searchbox",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#6b7280ff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "title-text",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/title/address/title-text",
+      "rect": [
+        30.0,
+        17.75,
+        221.03,
+        20.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "example.com/the-quiet-page"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "controls",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls",
+      "rect": [
+        556.71,
+        11.75,
+        323.29,
+        32.0
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "toc",
+      "label": "Contents",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/toc",
+      "rect": [
+        556.71,
+        11.75,
+        110.58,
+        32.0
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#1a1a1aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "label",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/toc/label",
+      "rect": [
+        568.71,
+        15.25,
+        86.58,
+        25.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Contents"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "pin",
+      "label": "Pin",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/pin",
+      "rect": [
+        673.29,
+        11.75,
+        53.91,
+        32.0
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#1a1a1aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "label",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/pin/label",
+      "rect": [
+        685.29,
+        15.25,
+        29.91,
+        25.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Pin"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "library",
+      "label": "Library",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/library",
+      "rect": [
+        733.2,
+        11.75,
+        91.27,
+        32.0
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#1a1a1aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "label",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/library/label",
+      "rect": [
+        745.2,
+        15.25,
+        67.27,
+        25.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Library"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "settings",
+      "label": "Aa",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/settings",
+      "rect": [
+        830.46,
+        11.75,
+        49.54,
+        32.0
+      ],
+      "role": "button",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#1a1a1aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "label",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/titlebar-row/controls/settings/label",
+      "rect": [
+        842.46,
+        15.25,
+        25.54,
+        25.0
+      ],
+      "role": "text",
+      "scale": 1.0,
+      "text": "Aa"
+    },
+    {
+      "blur": 0.0,
+      "fill": "#1a1a1a24",
+      "focusVisible": false,
+      "focusable": false,
+      "focused": false,
+      "inert": false,
+      "key": "divider",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/titlebar/divider",
+      "rect": [
+        0.0,
+        55.5,
+        900.0,
+        0.5
+      ],
+      "role": "group",
+      "scale": 1.0
+    },
+    {
+      "blur": 0.0,
+      "color": "#1a1a1aff",
+      "fill": "#00000000",
+      "focusVisible": false,
+      "focusable": true,
+      "focused": false,
+      "inert": false,
+      "key": "https://example.com/readers",
+      "label": "Every reader worth keeping",
+      "loopPhase": null,
+      "opacity": 1.0,
+      "path": "root/window/surface/article-with-bar/article/article-row/measure/article-rows/block-1#link-0",
+      "rect": [
+        279.2,
+        345.0,
+        335.16,
+        42.0
+      ],
+      "role": "link",
+      "scale": 1.0,
+      "text": "Every reader worth keeping"
+    }
+  ],
+  "reduced_motion": false,
+  "scale": 2.0,
+  "t": 0.0,
+  "time_scale": 1.0,
+  "title": "Folio",
+  "viewport": [
+    900.0,
+    720.0
+  ],
+  "warnings": []
+}
