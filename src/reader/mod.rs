@@ -148,6 +148,7 @@ mod tests {
                 Block::Para { spans: vec![Inline { text: "body".into(), kind: InlineKind::Text }] },
             ],
             plain: "T body".into(),
+            next_chapter_url: None,
         }
     }
 
