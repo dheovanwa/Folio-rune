@@ -203,6 +203,29 @@ impl State {
         self.reveal_hit = true;
     }
 
+    /// Scroll to and centre the current search hit, mounting the virtual row if needed.
+    pub fn reveal_current_hit(&mut self, tx: &mut Tx) {
+        if let Some(hit) = self.current_hit() {
+            let key = if hit.block < self.reader.first {
+                format!("headline/hit-{}-{}-{}", hit.block, hit.item, hit.start)
+            } else {
+                format!("block-{}/hit-{}-{}-{}", hit.block, hit.block, hit.item, hit.start)
+            };
+            tx.scroll_center(key);
+            if hit.block >= self.reader.first {
+                tx.scroll_into_view(format!("block-{}", hit.block));
+            } else {
+                tx.scroll_into_view("article-head");
+            }
+        }
+    }
+
+    /// Move to next/prev hit and immediately scroll to it.
+    pub fn step_hit_tx(&mut self, by: i32, tx: &mut Tx) {
+        self.step_hit(by);
+        self.reveal_current_hit(tx);
+    }
+
     /// A panel that needs the titlebar opened it, or closed it.
     pub fn chrome_panel(&mut self, open: bool) {
         self.reader.chrome.panel(open);
@@ -376,10 +399,8 @@ fn poll(s: &mut State, t: f64, tx: &mut Tx) -> bool {
         // per hit change, not every frame, or it would fight the reader's own scrolling.
         if s.reveal_hit {
             s.reveal_hit = false;
-            if let Some(hit) = s.current_hit() {
-                tx.scroll_center(format!("hit-{}-{}-{}", hit.block, hit.item, hit.start));
-                return true;
-            }
+            s.reveal_current_hit(tx);
+            return true;
         }
         return chrome_changed;
     };
@@ -445,15 +466,15 @@ fn on_key(s: &mut State, ev: &KeyEvent, tx: &mut Tx) -> bool {
                 return true;
             }
             Key::Enter => {
-                s.step_hit(if ev.mods.shift { -1 } else { 1 });
+                s.step_hit_tx(if ev.mods.shift { -1 } else { 1 }, tx);
                 return true;
             }
             Key::Down => {
-                s.step_hit(1);
+                s.step_hit_tx(1, tx);
                 return true;
             }
             Key::Up => {
-                s.step_hit(-1);
+                s.step_hit_tx(-1, tx);
                 return true;
             }
             _ => return false,
