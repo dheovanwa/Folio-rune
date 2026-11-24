@@ -9,7 +9,9 @@
 #![forbid(unsafe_code)]
 
 mod article;
+mod cache;
 mod config;
+mod fetcher;
 mod library;
 mod reader;
 mod theme;
@@ -678,10 +680,11 @@ fn main() {
             }),
             ("chapter", |s| {
                 // The real animeanyway page, so a snapshot exercises the __NEXT_DATA__ path.
-                if let Ok(html) = std::fs::read_to_string("/tmp/page.html") {
-                    if let Ok(doc) = article::extract(&html, "https://animeanyway.com/y3v5/ch4") {
-                        s.open(doc);
-                    }
+                if let Some(doc) = std::fs::read_to_string("/tmp/page.html")
+                    .ok()
+                    .and_then(|html| article::extract(&html, "https://animeanyway.com/y3v5/ch4").ok())
+                {
+                    s.open(doc);
                 }
             }),
             ("address", |s| {
@@ -696,10 +699,11 @@ fn main() {
             }),
             ("chapter-toc", |s| {
                 // The real chapter, whose TOC is built from its section labels.
-                if let Ok(html) = std::fs::read_to_string("/tmp/page.html") {
-                    if let Ok(doc) = article::extract(&html, "https://animeanyway.com/y3v5/ch4") {
-                        s.open(doc);
-                    }
+                if let Some(doc) = std::fs::read_to_string("/tmp/page.html")
+                    .ok()
+                    .and_then(|html| article::extract(&html, "https://animeanyway.com/y3v5/ch4").ok())
+                {
+                    s.open(doc);
                 }
                 s.show_toc = true;
             }),
