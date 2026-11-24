@@ -1,0 +1,36 @@
+# Folio site profile — work this file out, then copy it.
+#
+# A profile is optional. With no file for a host, Folio reads the page heuristically and shows
+# the article without any cleanup. Add a profile when a site's own layout gets in the way.
+#
+# Files live in `profiles/`, and the name does not matter — the host inside does.
+
+# The host this profile applies to. No scheme, no path.
+domain = "read.example"
+
+# Shown in messages and tests; optional.
+name = "Read Example"
+
+# Other hosts that should use this profile. `*.read.example` also covers read.example itself.
+aliases = ["www.read.example"]
+
+[extract]
+# The container that holds the article, when the guess picks the wrong part of the page.
+# Any CSS selector the page's own elements answer to. Leave it out to let Folio score containers.
+selector = "article.post, main .entry-content"
+
+# Subtrees removed from that container before its text is read. Selectors, not text patterns.
+exclude = [".ad-slot", ".share-bar", "nav.related"]
+
+# The "next chapter" link, for a site whose label does not say so. Without it, Folio uses
+# rel="next" or an anchor labelled "Next chapter"/"Next part"/"»".
+next = "a.chapter-next"
+
+[sanitize]
+# A block whose whole text matches one of these is dropped. `*` is any run of characters, `?` is
+# one character, and `|` separates alternatives. Matching ignores case and spacing.
+drop_blocks = ["Advertisement", "Sponsored *", "Share this|Share on *", "Subscribe to continue"]
+
+# Literal text cut out of any block that contains it — watermarks inside real prose.
+# These must be plain strings: a wildcard cannot say what to remove.
+strip_text = ["(Advertisement)", "© 2026 Read Example. All rights reserved.", "Read more at read.example"]

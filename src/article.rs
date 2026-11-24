@@ -2,21 +2,57 @@
 //!
 //! `dom_smoothie` (Mozilla Readability) picks the article body; `dom_query` walks the retained
 //! HTML so headings, quotes, lists, code and links survive as blocks instead of one wall of text.
+//!
+//! Extraction has four rungs, tried in order, so a page only reaches the next one when the
+//! previous could not read it:
+//!
+//! 1. A site profile's pinned container ([`parser::fallback::from_container`]).
+//! 2. A structured `__NEXT_DATA__` payload.
+//! 3. Readability's own scoring.
+//! 4. The zero-config density heuristic ([`parser::fallback::analyse`]).
+//!
+//! Whichever rung wins, a profile's cleanup rules are applied to the result before it is handed
+//! back, and the plain text is rebuilt so search and word count match what is drawn.
 
 use dom_query::Document;
 use dom_smoothie::{Article, Config as ReadConfig, Readability, TextMode};
 use serde::{Deserialize, Serialize};
 
+use self::parser::fallback::{self, Found};
+use self::parser::profile::Profile;
+use self::parser::sanitize::{Sanitizer, plain_of};
+
+/// Extraction and site profiles live in `src/parser/`.
+///
+/// Declared here rather than at the crate root because the integration tests link this file on
+/// its own (`#[path = "../src/article.rs"] mod article;`); a `crate::parser` path would not
+/// resolve there, while one module tree serves both the binary and the tests.
+#[path = "parser/mod.rs"]
+pub mod parser;
+
 /// One block of article prose, already shaped for the reader.
 #[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
 pub enum Block {
     /// `level` is 1..=6, as `<h1>`..`<h6>`.
-    Heading { level: u8, text: String },
-    Para { spans: Vec<Inline> },
-    Quote { spans: Vec<Inline> },
+    Heading {
+        level: u8,
+        text: String,
+    },
+    Para {
+        spans: Vec<Inline>,
+    },
+    Quote {
+        spans: Vec<Inline>,
+    },
     /// Ordered or unordered; `start` is the first number for `<ol start=..>`.
-    List { ordered: bool, start: u32, items: Vec<Vec<Inline>> },
-    Code { text: String },
+    List {
+        ordered: bool,
+        start: u32,
+        items: Vec<Vec<Inline>>,
+    },
+    Code {
+        text: String,
+    },
     Rule,
 }
 
@@ -38,7 +74,10 @@ pub enum InlineKind {
 
 impl Inline {
     fn plain(text: impl Into<String>) -> Inline {
-        Inline { text: text.into(), kind: InlineKind::Text }
+        Inline {
+            text: text.into(),
+            kind: InlineKind::Text,
+        }
     }
 }
 
@@ -86,6 +125,9 @@ pub struct ArticleDoc {
     pub blocks: Vec<Block>,
     /// Everything the article says, for search and the empty-state word count.
     pub plain: String,
+    /// The next chapter's absolute URL, when the page declares one. The prefetcher queues it so
+    /// the next chapter is already cached when the reader gets there.
+    pub next_chapter_url: Option<String>,
 }
 
 impl ArticleDoc {
@@ -104,15 +146,10 @@ impl ArticleDoc {
     /// prose is all one style — still has something to navigate to. `None` means "the top".
     pub fn toc(&self) -> Vec<(u8, String, Option<usize>)> {
         let mut out = vec![(1u8, self.title.clone(), None)];
-        out.extend(
-            self.blocks
-                .iter()
-                .enumerate()
-                .filter_map(|(i, b)| match b {
-                    Block::Heading { level, text } => Some((*level, text.clone(), Some(i))),
-                    _ => None,
-                }),
-        );
+        out.extend(self.blocks.iter().enumerate().filter_map(|(i, b)| match b {
+            Block::Heading { level, text } => Some((*level, text.clone(), Some(i))),
+            _ => None,
+        }));
         out
     }
 
@@ -136,7 +173,12 @@ impl ArticleDoc {
                 let mut from = 0;
                 while let Some(at) = hay[from..].find(needle.as_str()) {
                     let start = from + at;
-                    hits.push(Hit { block: i, item, start, end: start + needle.len() });
+                    hits.push(Hit {
+                        block: i,
+                        item,
+                        start,
+                        end: start + needle.len(),
+                    });
                     from = start + needle.len().max(1);
                 }
             });
@@ -176,7 +218,11 @@ impl std::fmt::Display for FetchError {
 pub fn fetch(url: &str) -> Result<ArticleDoc, FetchError> {
     let agent: ureq::Agent = ureq::Agent::config_builder()
         .timeout_global(Some(std::time::Duration::from_secs(20)))
-        .user_agent(concat!("Folio/", env!("CARGO_PKG_VERSION"), " (Rune reader)"))
+        .user_agent(concat!(
+            "Folio/",
+            env!("CARGO_PKG_VERSION"),
+            " (Rune reader)"
+        ))
         .build()
         .into();
     let html = agent
@@ -190,41 +236,140 @@ pub fn fetch(url: &str) -> Result<ArticleDoc, FetchError> {
     extract(&html, url)
 }
 
+/// Whether two URLs point at the same page, ignoring a trailing slash and the fragment.
+fn same_page(a: &str, b: &str) -> bool {
+    fn key(u: &str) -> &str {
+        u.split('#').next().unwrap_or(u).trim_end_matches('/')
+    }
+    key(a).eq_ignore_ascii_case(key(b))
+}
+
 /// The pure part: HTML in, blocks out. Split from `fetch` so it is testable offline.
+///
+/// The site profile is looked up from the installed `profiles/` once per call; use
+/// [`extract_with`] when the caller already has one.
 pub fn extract(html: &str, url: &str) -> Result<ArticleDoc, FetchError> {
+    extract_with(html, url, parser::profile_for(url))
+}
+
+/// `extract`, with the profile given rather than looked up. `None` is the zero-config path.
+pub fn extract_with(
+    html: &str,
+    url: &str,
+    profile: Option<&Profile>,
+) -> Result<ArticleDoc, FetchError> {
     // Relative hrefs in the extracted body resolve against the page they came from.
     set_base_url(url);
 
-    // Some sites ship the article as structured JSON in `__NEXT_DATA__` rather than as prose
-    // markup (Next.js + Sanity, common for serialised fiction). Readability only sees navigation
-    // on those pages and gives up, so the payload is tried before falling back to it.
+    // Rung 1: a site profile can pin the container, which beats every guess below it.
+    if let Some(p) = profile
+        && let Some(found) = fallback::from_container(html, p)
+        && let Some(doc) = doc_from(found, url)
+    {
+        return finish(doc, profile, html, url);
+    }
+
+    // Rung 2: some sites ship the article as structured JSON in `__NEXT_DATA__` rather than as
+    // prose markup (Next.js + Sanity, common for serialised fiction). Readability only sees
+    // navigation on those pages and gives up, so the payload is tried first.
     if let Some(doc) = next_data_doc(html, url) {
-        return Ok(doc);
+        return finish(doc, profile, html, url);
     }
 
-    let cfg = ReadConfig { text_mode: TextMode::Formatted, ..ReadConfig::default() };
-    let mut readability = Readability::new(html, Some(url), Some(cfg)).map_err(|e| FetchError::Network(e.to_string()))?;
-    let article: Article = readability.parse().map_err(|_| FetchError::NotReadable)?;
-
-    let blocks = blocks_from(&article.content);
-    let plain = article.text_content.to_string();
-    if blocks.is_empty() || plain.trim().is_empty() {
-        return Err(FetchError::Empty);
+    // Rung 3: Readability. A refusal is not fatal any more: the rung below is the last resort,
+    // and a page Readability cannot score may still be readable by density.
+    let cfg = ReadConfig {
+        text_mode: TextMode::Formatted,
+        ..ReadConfig::default()
+    };
+    let readable = Readability::new(html, Some(url), Some(cfg))
+        .ok()
+        .and_then(|mut r| r.parse().ok())
+        .and_then(|a| {
+            let blocks = blocks_from(&a.content);
+            if blocks.is_empty() {
+                return None;
+            }
+            Some(article_doc(url, a, blocks))
+        });
+    if let Some(doc) = readable {
+        return finish(doc, profile, html, url);
     }
+
+    // Rung 4: no profile, no payload, and Readability found nothing. Score the page's containers
+    // by prose density and read the best one.
+    let found = fallback::analyse(html).ok_or(FetchError::NotReadable)?;
+    let doc = doc_from(found, url).ok_or(FetchError::Empty)?;
+    finish(doc, profile, html, url)
+}
+
+/// `ArticleDoc` from a Readability result, with the title falling back to the URL.
+fn article_doc(url: &str, article: Article, blocks: Vec<Block>) -> ArticleDoc {
     let title = if article.title.trim().is_empty() {
         url.to_string()
     } else {
         article.title.clone()
     };
-    Ok(ArticleDoc {
+    ArticleDoc {
         url: url.to_string(),
         title,
         byline: article.byline.clone(),
         site: article.site_name.clone(),
         excerpt: article.excerpt.clone(),
         blocks,
+        plain: article.text_content.to_string(),
+        next_chapter_url: None,
+    }
+}
+
+/// `ArticleDoc` from a heuristic read, or `None` when it found no blocks.
+fn doc_from(found: Found, url: &str) -> Option<ArticleDoc> {
+    if found.blocks.is_empty() {
+        return None;
+    }
+    let title = found
+        .title
+        .filter(|t| !t.trim().is_empty())
+        .unwrap_or_else(|| url.to_string());
+    let plain = plain_of(&found.blocks);
+    if plain.trim().is_empty() {
+        return None;
+    }
+    Some(ArticleDoc {
+        url: url.to_string(),
+        title,
+        byline: found.byline,
+        site: found.site,
+        excerpt: found.excerpt,
+        blocks: found.blocks,
         plain,
+        next_chapter_url: None,
     })
+}
+
+/// Apply the site's cleanup rules, then rebuild the plain text so search, the word count and the
+/// clipboard all describe what is actually on screen.
+///
+/// The next chapter's link is recorded here too, from the page as fetched: cleanup drops junk
+/// blocks, and a site's "next chapter" anchor often lives in exactly that kind of furniture.
+fn finish(
+    mut doc: ArticleDoc,
+    profile: Option<&Profile>,
+    html: &str,
+    url: &str,
+) -> Result<ArticleDoc, FetchError> {
+    doc.next_chapter_url =
+        parser::next_url(html, url, profile).filter(|next| !same_page(next, url));
+    if let Some(p) = profile
+        && !p.is_empty_rules()
+    {
+        Sanitizer::new(p).apply(&mut doc.blocks);
+        if doc.blocks.is_empty() {
+            return Err(FetchError::Empty);
+        }
+        doc.plain = plain_of(&doc.blocks);
+    }
+    Ok(doc)
 }
 
 // ── Next.js / Sanity Portable Text ─────────────────────────────────────────────────────────────
@@ -297,7 +442,7 @@ fn next_data_doc(html: &str, url: &str) -> Option<ArticleDoc> {
     if !script.exists() {
         return None;
     }
-    let data: NextData = serde_json::from_str(&script.text().to_string()).ok()?;
+    let data: NextData = serde_json::from_str(script.text().as_ref()).ok()?;
     let chapter = data.props.page_props.chapter?;
     let blocks = portable_blocks(&chapter.content);
     if blocks.is_empty() {
@@ -307,7 +452,9 @@ fn next_data_doc(html: &str, url: &str) -> Option<ArticleDoc> {
         .iter()
         .map(|b| match b {
             Block::Heading { text, .. } => text.clone(),
-            Block::Para { spans } | Block::Quote { spans } => spans.iter().map(|s| s.text.as_str()).collect(),
+            Block::Para { spans } | Block::Quote { spans } => {
+                spans.iter().map(|s| s.text.as_str()).collect()
+            }
             Block::List { items, .. } => items
                 .iter()
                 .map(|i| i.iter().map(|s| s.text.as_str()).collect::<String>())
@@ -331,6 +478,7 @@ fn next_data_doc(html: &str, url: &str) -> Option<ArticleDoc> {
         excerpt: None,
         blocks,
         plain,
+        next_chapter_url: None,
     })
 }
 
@@ -343,7 +491,10 @@ fn portable_blocks(content: &[PBlock]) -> Vec<Block> {
         // to a heading so it both draws and indexes.
         if b.kind == "readerSection" {
             if let Some(label) = b.label.as_deref().map(collapse).filter(|l| !l.is_empty()) {
-                out.push(Block::Heading { level: 2, text: label });
+                out.push(Block::Heading {
+                    level: 2,
+                    text: label,
+                });
             }
             continue;
         }
@@ -359,20 +510,29 @@ fn portable_blocks(content: &[PBlock]) -> Vec<Block> {
         if let Some(item) = &b.list_item {
             let ordered = item == "number";
             // Extend the list this item belongs to, or start one.
-            if let Some(Block::List { ordered: o, items, .. }) = out.last_mut() {
-                if *o == ordered {
-                    items.push(spans);
-                    continue;
-                }
+            if let Some(Block::List {
+                ordered: o, items, ..
+            }) = out.last_mut()
+                && *o == ordered
+            {
+                items.push(spans);
+                continue;
             }
-            out.push(Block::List { ordered, start: 1, items: vec![spans] });
+            out.push(Block::List {
+                ordered,
+                start: 1,
+                items: vec![spans],
+            });
             continue;
         }
 
         match b.style.as_deref() {
             Some("h1") | Some("h2") | Some("h3") | Some("h4") | Some("h5") | Some("h6") => {
                 let level = b.style.as_deref().unwrap()[1..].parse::<u8>().unwrap_or(2);
-                out.push(Block::Heading { level, text: collapse(&text) });
+                out.push(Block::Heading {
+                    level,
+                    text: collapse(&text),
+                });
             }
             Some("blockquote") => out.push(Block::Quote { spans }),
             _ => out.push(Block::Para { spans }),
@@ -395,19 +555,27 @@ fn portable_spans(b: &PBlock) -> Vec<Inline> {
                 "em" => kind = InlineKind::Italic,
                 "code" => kind = InlineKind::Code,
                 other => {
-                    if let Some(def) = b.mark_defs.iter().find(|m| m.key == other) {
-                        if def.kind == "link" {
-                            if let Some(href) = &def.href {
-                                kind = InlineKind::Link(href.clone());
-                            }
-                        }
+                    if let Some(def) = b.mark_defs.iter().find(|m| m.key == other)
+                        && def.kind == "link"
+                        && let Some(href) = &def.href
+                    {
+                        kind = InlineKind::Link(href.clone());
                     }
                 }
             }
         }
-        runs.push(Inline { text: span.text.clone(), kind });
+        runs.push(Inline {
+            text: span.text.clone(),
+            kind,
+        });
     }
     merge(runs)
+}
+
+/// Walk an HTML fragment into blocks. Public so the profile and heuristic readers share exactly
+/// one flattening, and a container's markup becomes the same model Readability's body would.
+pub fn blocks_from_html(html: &str) -> Vec<Block> {
+    blocks_from(html)
 }
 
 /// Walk the article's retained HTML, flattening it into blocks. Inline formatting inside a
@@ -415,7 +583,11 @@ fn portable_spans(b: &PBlock) -> Vec<Inline> {
 fn blocks_from(content: &str) -> Vec<Block> {
     let doc = Document::from(content.to_string());
     let root = doc.select("body");
-    let root = if root.exists() { root } else { doc.select("html") };
+    let root = if root.exists() {
+        root
+    } else {
+        doc.select("html")
+    };
     let mut out = Vec::new();
     let nodes: Vec<_> = root.nodes().to_vec();
     for node in nodes {
@@ -426,7 +598,10 @@ fn blocks_from(content: &str) -> Vec<Block> {
 
 fn walk(node: &dom_query::NodeRef<'_>, out: &mut Vec<Block>) {
     for child in node.element_children() {
-        let name = child.node_name().map(|n| n.to_ascii_lowercase()).unwrap_or_default();
+        let name = child
+            .node_name()
+            .map(|n| n.to_ascii_lowercase())
+            .unwrap_or_default();
         match name.as_str() {
             "h1" | "h2" | "h3" | "h4" | "h5" | "h6" => {
                 let level = name[1..].parse::<u8>().unwrap_or(2);
@@ -445,27 +620,42 @@ fn walk(node: &dom_query::NodeRef<'_>, out: &mut Vec<Block>) {
                 // A quote's own paragraphs become one block: Folio draws the quote as a unit.
                 let text = collapse(&child.text());
                 if !text.is_empty() {
-                    out.push(Block::Quote { spans: vec![Inline::plain(text)] });
+                    out.push(Block::Quote {
+                        spans: vec![Inline::plain(text)],
+                    });
                 }
             }
             "pre" => {
                 let text = child.text().to_string();
                 if !text.trim().is_empty() {
-                    out.push(Block::Code { text: text.trim_end().to_string() });
+                    out.push(Block::Code {
+                        text: text.trim_end().to_string(),
+                    });
                 }
             }
             "ul" | "ol" => {
                 let ordered = name == "ol";
-                let start = child.attr("start").and_then(|s| s.parse::<u32>().ok()).unwrap_or(1);
+                let start = child
+                    .attr("start")
+                    .and_then(|s| s.parse::<u32>().ok())
+                    .unwrap_or(1);
                 let items: Vec<Vec<Inline>> = child
                     .element_children()
                     .into_iter()
-                    .filter(|li| li.node_name().map(|n| n.eq_ignore_ascii_case("li")).unwrap_or(false))
+                    .filter(|li| {
+                        li.node_name()
+                            .map(|n| n.eq_ignore_ascii_case("li"))
+                            .unwrap_or(false)
+                    })
                     .map(|li| inline_of(&li))
                     .filter(|spans| has_words(spans))
                     .collect();
                 if !items.is_empty() {
-                    out.push(Block::List { ordered, start, items });
+                    out.push(Block::List {
+                        ordered,
+                        start,
+                        items,
+                    });
                 }
             }
             "hr" => out.push(Block::Rule),
@@ -500,14 +690,20 @@ fn collect_inline(node: &dom_query::NodeRef<'_>, kind: InlineKind, runs: &mut Ve
         if child.is_text() {
             let text = child.text().to_string();
             if !text.is_empty() {
-                runs.push(Inline { text, kind: kind.clone() });
+                runs.push(Inline {
+                    text,
+                    kind: kind.clone(),
+                });
             }
             continue;
         }
         if !child.is_element() {
             continue;
         }
-        let name = child.node_name().map(|n| n.to_ascii_lowercase()).unwrap_or_default();
+        let name = child
+            .node_name()
+            .map(|n| n.to_ascii_lowercase())
+            .unwrap_or_default();
         let next = match name.as_str() {
             "strong" | "b" => InlineKind::Bold,
             "em" | "i" => InlineKind::Italic,
@@ -518,7 +714,10 @@ fn collect_inline(node: &dom_query::NodeRef<'_>, kind: InlineKind, runs: &mut Ve
             },
             // A <br> is a soft line break; Folio's prose keeps it as a space.
             "br" => {
-                runs.push(Inline { text: " ".into(), kind: kind.clone() });
+                runs.push(Inline {
+                    text: " ".into(),
+                    kind: kind.clone(),
+                });
                 continue;
             }
             _ => kind.clone(),
@@ -538,7 +737,10 @@ fn merge(runs: Vec<Inline>) -> Vec<Inline> {
         }
         match out.last_mut() {
             Some(last) if last.kind == run.kind => last.text.push_str(&text),
-            _ => out.push(Inline { text, kind: run.kind }),
+            _ => out.push(Inline {
+                text,
+                kind: run.kind,
+            }),
         }
     }
     if let Some(first) = out.first_mut() {
@@ -639,9 +841,17 @@ mod tests {
         // with prose; the reader draws the headline from `doc.title`.
         assert!(matches!(doc.blocks[0], Block::Para { .. }));
         assert!(doc.blocks.iter().any(|b| matches!(b, Block::Quote { .. })));
-        assert!(doc.blocks.iter().any(|b| matches!(b, Block::List { ordered: false, .. })));
+        assert!(
+            doc.blocks
+                .iter()
+                .any(|b| matches!(b, Block::List { ordered: false, .. }))
+        );
         assert!(doc.blocks.iter().any(|b| matches!(b, Block::Code { .. })));
-        assert!(doc.blocks.iter().any(|b| matches!(b, Block::Heading { level: 2, .. })));
+        assert!(
+            doc.blocks
+                .iter()
+                .any(|b| matches!(b, Block::Heading { level: 2, .. }))
+        );
     }
 
     #[test]
@@ -656,7 +866,11 @@ mod tests {
                 _ => None,
             })
             .unwrap();
-        assert!(spans.iter().any(|s| s.kind == InlineKind::Bold && s.text == "slow"));
+        assert!(
+            spans
+                .iter()
+                .any(|s| s.kind == InlineKind::Bold && s.text == "slow")
+        );
         assert!(spans.iter().any(|s| matches!(s.kind, InlineKind::Link(_))));
     }
 
@@ -687,12 +901,64 @@ mod tests {
         assert!(toc[1].2.is_some(), "a heading entry must name its block");
     }
 
+    /// A synthetic `__NEXT_DATA__` chapter page, with no fixture file behind it.
+    ///
+    /// `paragraphs` prose blocks are generated so the size checks in the tests below are about
+    /// the parser rather than about how long the sample happens to be. Section breaks are placed
+    /// at the quarter and the halfway point, and the opening paragraph carries a link through
+    /// `markDefs`, which is the one part of Portable Text that needs resolving.
+    fn next_chapter_page(paragraphs: usize, title: &str) -> String {
+        use serde_json::json;
+
+        let opening = "The special exam aboard the ship began before dawn, and nobody had slept.";
+        let body = "The corridor was quiet in the way a held breath is quiet, and every door along \
+                    it stayed shut while the announcement was read out over the speakers.";
+        let mut content = Vec::with_capacity(paragraphs + 2);
+        for i in 0..paragraphs {
+            if i == paragraphs / 4 {
+                content.push(json!({"_type": "readerSection", "label": "Part 1"}));
+            }
+            if i == paragraphs / 2 {
+                content.push(json!({"_type": "readerSection", "label": "Part 2"}));
+            }
+            let text = if i == 0 {
+                format!("{opening} She read the notice twice. {body}")
+            } else {
+                format!("{body} Paragraph {i}.")
+            };
+            let mut children = vec![json!({"_type": "span", "text": text, "marks": []})];
+            if i == 0 {
+                children.push(json!({
+                    "_type": "span",
+                    "text": "Join the discussion",
+                    "marks": ["link1"],
+                }));
+            }
+            content.push(json!({
+                "_type": "block",
+                "style": "normal",
+                "children": children,
+                "markDefs": [{"_key": "link1", "_type": "link", "href": "https://example.com/chat"}],
+            }));
+        }
+        let data = json!({
+            "props": {"pageProps": {"chapter": {"title": title, "content": content}}}
+        })
+        .to_string();
+        format!(
+            r#"<html><head><title>Site</title></head><body>
+                 <a rel="next" href="/ch5">Next chapter</a>
+                 <script id="__NEXT_DATA__" type="application/json">{data}</script>
+               </body></html>"#
+        )
+    }
+
     #[test]
     fn a_reader_section_label_becomes_a_heading() {
         // A serialised chapter has no `<h*>` at all: its only structure is `readerSection`
         // breaks, whose labels are what the contents list must show.
-        let html = std::fs::read_to_string("/tmp/page.html").expect("fixture");
-        let doc = extract(&html, "https://animeanyway.com/y3v5/ch4").expect("should extract");
+        let html = next_chapter_page(12, "Chapter 4");
+        let doc = extract(&html, "https://example.com/ch4").expect("should extract");
         let headings: Vec<&str> = doc
             .blocks
             .iter()
@@ -750,8 +1016,14 @@ mod tests {
             ordered: false,
             start: 1,
             items: vec![
-                vec![Inline { text: "One".into(), kind: InlineKind::Text }],
-                vec![Inline { text: "Two".into(), kind: InlineKind::Text }],
+                vec![Inline {
+                    text: "One".into(),
+                    kind: InlineKind::Text,
+                }],
+                vec![Inline {
+                    text: "Two".into(),
+                    kind: InlineKind::Text,
+                }],
             ],
         };
         let mut got = Vec::new();
@@ -759,19 +1031,22 @@ mod tests {
         assert_eq!(got, vec![(0, "One".to_string()), (1, "Two".to_string())]);
     }
 
-#[test]
+    #[test]
     fn a_next_data_chapter_extracts_its_prose() {
-        let html = std::fs::read_to_string("/tmp/page.html").expect("fixture");
-        let doc = extract(&html, "https://animeanyway.com/y3v5/ch4").expect("should extract");
+        let html = next_chapter_page(60, "Chapter 4");
+        let doc = extract(&html, "https://example.com/ch4").expect("should extract");
         assert!(doc.blocks.len() > 50, "got {} blocks", doc.blocks.len());
         assert!(doc.title.contains("Chapter 4"), "title was {:?}", doc.title);
         let first = match &doc.blocks[0] {
             Block::Para { spans } => spans.iter().map(|s| s.text.as_str()).collect::<String>(),
             other => panic!("first block was {other:?}"),
         };
-        assert!(first.contains("special exam aboard the ship"), "first para: {first:?}");
+        assert!(
+            first.contains("special exam aboard the ship"),
+            "first para: {first:?}"
+        );
         assert!(doc.word_count() > 500, "words {}", doc.word_count());
-        // The Discord link in the prose must survive as a Link run.
+        // The link in the prose must survive as a Link run.
         let has_link = doc.blocks.iter().any(|b| match b {
             Block::Para { spans } | Block::Quote { spans } => {
                 spans.iter().any(|s| matches!(s.kind, InlineKind::Link(_)))
@@ -779,6 +1054,99 @@ mod tests {
             _ => false,
         });
         assert!(has_link, "no link run found");
+    }
+
+    #[test]
+    fn the_next_chapters_link_is_recorded() {
+        let html = next_chapter_page(6, "Chapter 4");
+        let doc = extract(&html, "https://example.com/book/ch4").expect("should extract");
+        assert_eq!(
+            doc.next_chapter_url.as_deref(),
+            Some("https://example.com/ch5"),
+            "a rel=next link should resolve against the article's host"
+        );
+    }
+
+    #[test]
+    fn a_page_without_a_next_link_leaves_the_field_empty() {
+        set_base_url("https://example.com/posts/quiet");
+        let doc = extract(PAGE, "https://example.com/posts/quiet").unwrap();
+        assert_eq!(doc.next_chapter_url, None);
+    }
+
+    #[test]
+    fn a_next_link_to_the_same_page_is_not_recorded() {
+        let html = PAGE.replace(
+            "</body>",
+            r#"<a rel="next" href="/posts/quiet#top">Next chapter</a></body>"#,
+        );
+        set_base_url("https://example.com/posts/quiet");
+        let doc = extract(&html, "https://example.com/posts/quiet").unwrap();
+        assert_eq!(doc.next_chapter_url, None);
+    }
+
+    #[test]
+    fn a_page_with_no_profile_falls_back_to_the_density_heuristic() {
+        // No `__NEXT_DATA__`, and markup Readability is likely to refuse: a lone div of prose
+        // with no article or main element, which is what the heuristic exists for.
+        let body = "The harbour was empty at that hour, and the water held the lights of the town \
+                    without moving them, as if the whole bay were deciding whether to wake.";
+        let html = format!(
+            r#"<html><body><div class="entry">
+                 <p>{body}</p><p>{body}</p><p>{body}</p><p>{body}</p>
+               </div></body></html>"#
+        );
+        let doc =
+            extract_with(&html, "https://nomatch.test/a", None).expect("heuristic should read it");
+        assert!(
+            doc.plain.contains("harbour was empty"),
+            "plain was {:?}",
+            doc.plain
+        );
+        assert!(doc.word_count() > 30);
+    }
+
+    #[test]
+    fn a_profile_can_pin_a_container_and_clean_its_text() {
+        let html = r#"<html><body>
+            <article class="post">
+              <h2>Cleaned</h2>
+              <p>The first paragraph of the article is long enough to read, and it ends with a
+                 watermark that the profile should cut out. (Advertisement)</p>
+              <p>Advertisement</p>
+              <p>The second paragraph continues the piece, at a similar length, so the block
+                 walker has prose on both sides of the dropped line.</p>
+            </article></body></html>"#;
+        let profile = Profile::parse(
+            "domain = \"example.com\"\n[extract]\nselector = \"article.post\"\n\
+             [sanitize]\ndrop_blocks = [\"Advertisement\"]\nstrip_text = [\"(Advertisement)\"]",
+            "test.toml",
+        )
+        .unwrap();
+        let doc = extract_with(html, "https://example.com/x", Some(&profile)).expect("extract");
+        // The block that was nothing but the watermark is gone, and the one that merely ended
+        // with it lost only that phrase.
+        assert!(
+            !doc.plain.contains("Advertisement"),
+            "plain was {:?}",
+            doc.plain
+        );
+        assert!(
+            doc.plain.contains("first paragraph"),
+            "plain was {:?}",
+            doc.plain
+        );
+        assert!(
+            doc.plain.contains("second paragraph"),
+            "plain was {:?}",
+            doc.plain
+        );
+        assert!(
+            !doc.blocks.iter().any(|b| matches!(b, Block::Para { spans }
+                if spans.iter().map(|s| s.text.as_str()).collect::<String>().trim()
+                    == "Advertisement")),
+            "the watermark-only paragraph should be dropped"
+        );
     }
 
     #[test]
