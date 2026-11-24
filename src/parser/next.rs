@@ -63,13 +63,12 @@ fn from_rel(html: &str) -> Option<String> {
         let links = doc.select(sel);
         for node in links.nodes() {
             let rel = node.attr("rel").unwrap_or_default().to_ascii_lowercase();
-            if rel.split_whitespace().any(|t| t == "next") {
-                if let Some(href) = node
+            if rel.split_whitespace().any(|t| t == "next")
+                && let Some(href) = node
                     .attr("href")
                     .and_then(|h| usable(&h).map(str::to_string))
-                {
-                    return Some(href);
-                }
+            {
+                return Some(href);
             }
         }
     }
@@ -88,7 +87,7 @@ fn from_label(html: &str) -> Option<String> {
         else {
             continue;
         };
-        let label = tidy(&node.text().to_string()).to_ascii_lowercase();
+        let label = tidy(node.text().as_ref()).to_ascii_lowercase();
         if label.is_empty() || label.chars().count() > 40 {
             continue;
         }

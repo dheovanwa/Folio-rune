@@ -259,11 +259,13 @@ mod tests {
 
     #[test]
     fn a_hand_edited_value_is_clamped_and_reported() {
-        let mut cfg = Config::default();
-        cfg.font_size = 0.0;
-        cfg.line_height = 9.0;
-        cfg.theme = "solarized".into();
-        cfg.max_width = -10.0;
+        let mut cfg = Config {
+            font_size: 0.0,
+            line_height: 9.0,
+            theme: "solarized".into(),
+            max_width: -10.0,
+            ..Config::default()
+        };
         let notes = cfg.validate();
         assert_eq!(cfg.font_size, 8.0);
         assert_eq!(cfg.line_height, 3.0);
@@ -276,16 +278,20 @@ mod tests {
 
     #[test]
     fn a_nan_value_falls_to_the_low_end() {
-        let mut cfg = Config::default();
-        cfg.letter_spacing = f32::NAN;
+        let mut cfg = Config {
+            letter_spacing: f32::NAN,
+            ..Config::default()
+        };
         cfg.validate();
         assert_eq!(cfg.letter_spacing, -2.0);
     }
 
     #[test]
     fn an_empty_font_list_returns_to_the_default() {
-        let mut cfg = Config::default();
-        cfg.font_family = "   ".into();
+        let mut cfg = Config {
+            font_family: "   ".into(),
+            ..Config::default()
+        };
         cfg.validate();
         assert_eq!(cfg.font_family, Config::default().font_family);
     }

@@ -65,7 +65,7 @@ pub fn from_container(html: &str, profile: &Profile) -> Option<Found> {
             junk.remove();
         }
     }
-    let blocks = crate::article::blocks_from_html(&found.html().to_string());
+    let blocks = crate::article::blocks_from_html(found.html().as_ref());
     if blocks.is_empty() {
         return None;
     }
@@ -130,7 +130,7 @@ pub fn analyse(html: &str) -> Option<Found> {
         _ => return None,
     }
 
-    let blocks = crate::article::blocks_from_html(&chosen.html().to_string());
+    let blocks = crate::article::blocks_from_html(chosen.html().as_ref());
     if blocks.is_empty() {
         return None;
     }
@@ -159,10 +159,14 @@ fn prose(node: &NodeRef<'_>) -> Option<Prose> {
     if chars < 80 {
         return None;
     }
-    let link_chars: usize = node
-        .element_children()
+    // Every anchor in the subtree, not just the direct children: a list of links is usually
+    // wrapped in a `div` or `ul`, and a parent that only sees one child would otherwise look
+    // like prose. Links nested in prose stay a small share of the text, so real articles are
+    // unaffected.
+    let links = dom_query::Selection::from(*node).select("a");
+    let link_chars: usize = links
+        .nodes()
         .iter()
-        .filter(|c| c.node_name().is_some_and(|n| n.eq_ignore_ascii_case("a")))
         .map(|a| {
             a.text()
                 .to_string()
@@ -221,12 +225,12 @@ fn metadata(doc: &Document) -> Found {
         .select("h1")
         .nodes()
         .first()
-        .map(|n| tidy(&n.text().to_string()))
+        .map(|n| tidy(n.text().as_ref()))
         .filter(|t| !t.is_empty());
     let title = meta(&["og:title", "twitter:title"])
         .or_else(|| {
             let t = doc.select("title");
-            t.nodes().first().map(|n| tidy(&n.text().to_string()))
+            t.nodes().first().map(|n| tidy(n.text().as_ref()))
         })
         .filter(|t| !t.is_empty())
         .or(h1);

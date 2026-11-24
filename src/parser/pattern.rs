@@ -110,8 +110,7 @@ pub fn normalise(s: &str) -> String {
 /// Lowercase one character, without the multi-character expansions `char::to_lowercase` allows.
 fn fold(c: char) -> char {
     let mut it = c.to_lowercase();
-    let first = it.next().unwrap_or(c);
-    first
+    it.next().unwrap_or(c)
 }
 
 /// Classic wildcard match: two pointers with backtracking to the last `*`, which is linear in

@@ -442,7 +442,7 @@ fn next_data_doc(html: &str, url: &str) -> Option<ArticleDoc> {
     if !script.exists() {
         return None;
     }
-    let data: NextData = serde_json::from_str(&script.text().to_string()).ok()?;
+    let data: NextData = serde_json::from_str(script.text().as_ref()).ok()?;
     let chapter = data.props.page_props.chapter?;
     let blocks = portable_blocks(&chapter.content);
     if blocks.is_empty() {
@@ -513,11 +513,10 @@ fn portable_blocks(content: &[PBlock]) -> Vec<Block> {
             if let Some(Block::List {
                 ordered: o, items, ..
             }) = out.last_mut()
+                && *o == ordered
             {
-                if *o == ordered {
-                    items.push(spans);
-                    continue;
-                }
+                items.push(spans);
+                continue;
             }
             out.push(Block::List {
                 ordered,
@@ -556,12 +555,11 @@ fn portable_spans(b: &PBlock) -> Vec<Inline> {
                 "em" => kind = InlineKind::Italic,
                 "code" => kind = InlineKind::Code,
                 other => {
-                    if let Some(def) = b.mark_defs.iter().find(|m| m.key == other) {
-                        if def.kind == "link" {
-                            if let Some(href) = &def.href {
-                                kind = InlineKind::Link(href.clone());
-                            }
-                        }
+                    if let Some(def) = b.mark_defs.iter().find(|m| m.key == other)
+                        && def.kind == "link"
+                        && let Some(href) = &def.href
+                    {
+                        kind = InlineKind::Link(href.clone());
                     }
                 }
             }
