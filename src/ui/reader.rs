@@ -120,9 +120,6 @@ pub fn view(s: &State, p: Palette, hair: f32) -> El {
             s.reader.chrome.nudge();
             false
         })
-        .on_press(|s: &mut State| {
-            s.reader.chrome.nudge();
-        })
         .child(
             row()
                 .key("article-row")
@@ -197,6 +194,10 @@ fn find_bar(s: &State, p: Palette, hair: f32) -> El {
             .on_input_change(|s: &mut State, _tx: &mut rune::Tx| s.refresh_hits())
             .on_input_key(|s: &mut State, ev: &rune::KeyEvent, tx: &mut rune::Tx| match ev.key {
                 rune::Key::Escape => {
+                    if let Some(hit) = s.current_hit() {
+                        s.scroll_to = Some(Some(hit.block));
+                        tx.scroll_into_view(format!("block-{}", hit.block));
+                    }
                     s.find_focus = false;
                     s.find_edit = rune::TextEdit::new("");
                     s.hits.clear();
@@ -264,12 +265,17 @@ fn find_bar(s: &State, p: Palette, hair: f32) -> El {
             .center_y()
             .radius(radius::SM)
             .hover(p.hover)
-            .on_press(|s: &mut State| {
+            .on_press_tx(|s: &mut State, tx: &mut rune::Tx| {
+                if let Some(hit) = s.current_hit() {
+                    s.scroll_to = Some(Some(hit.block));
+                    tx.scroll_into_view(format!("block-{}", hit.block));
+                }
                 s.find_focus = false;
                 s.find_edit = rune::TextEdit::new("");
                 s.hits.clear();
                 s.hit_at = 0;
                 s.hit_query.clear();
+                tx.focus("article", false);
             })
             .child(text("Esc").key("x").font(s.toc_style(400.0)).color(p.meta).a11y_hidden()),
     );
