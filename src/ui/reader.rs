@@ -139,25 +139,14 @@ pub fn view(s: &State, p: Palette, hair: f32) -> El {
 
     // A permanent scroll bar in its own gutter: the text keeps its full measure and the bar
     // says how much is left without waiting for a hover. Its thumb is draggable.
-    let body = super::scrollbar::with_bar(p, "article", &s.scroll_bar, scroller);
-
-    if !s.find_focus && s.hit_query.is_empty() {
-        return body;
-    }
-    col()
-        .key("reader")
-        .w_full()
-        .grow(1.0)
-        .min_h(0.0)
-        .child(body)
-        .child(find_bar(s, p, hair))
+    super::scrollbar::with_bar(p, "article", &s.scroll_bar, scroller)
 }
 
 /// The find bar: a query field, the hit count, and step buttons.
 ///
-/// It sits at the bottom of the reading surface rather than floating, so opening it does not
-/// cover the line the current hit is on.
-fn find_bar(s: &State, p: Palette, hair: f32) -> El {
+/// It floats in the upper right corner of the reader (like browser Ctrl+F),
+/// keeping the article DOM and scroll position intact when opened or closed.
+pub fn find_bar(s: &State, p: Palette, hair: f32) -> El {
     let count = if s.hit_query.is_empty() {
         String::new()
     } else if s.hits.is_empty() {
@@ -167,11 +156,15 @@ fn find_bar(s: &State, p: Palette, hair: f32) -> El {
     };
 
     let mut row = row()
-        .key("find-row")
-        .w_full()
-        .h(52.0)
-        .px(20.0)
-        .gap(10.0)
+        .key("find-bar")
+        .w(360.0)
+        .h(42.0)
+        .px(12.0)
+        .gap(8.0)
+        .radius(radius::MD)
+        .fill(p.chrome_bg)
+        .border(hair.max(1.0), p.rule)
+        .shadow(4.0, 16.0, rune::Color::BLACK.alpha(0.22))
         .center_y();
 
     row = row.child(
@@ -283,14 +276,7 @@ fn find_bar(s: &State, p: Palette, hair: f32) -> El {
             .child(text("Esc").key("x").font(s.toc_style(400.0)).color(p.meta).a11y_hidden()),
     );
 
-    // The rule sits above the field, not beside it: as a row child it would take the width the
-    // field needs and push the whole bar off the right edge.
-    col()
-        .key("find-bar")
-        .w_full()
-        .fill(p.chrome_bg)
-        .child(super::divider(hair, p.rule))
-        .child(row)
+    row
 }
 
 /// One block, drawn as a row of the virtual list. `index` is the article's block index, which
