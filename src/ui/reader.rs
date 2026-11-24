@@ -1,10 +1,28 @@
 //! The reading surface: serif prose at a fixed measure, with Folio's block styles.
+//!
+//! The body is a *virtual* list. A chapter can be thousands of blocks long, and drawing all of
+//! them costs a layout pass over text nobody is looking at, so only the rows inside (or just
+//! outside) the viewport are built. Each row is keyed by its block index — `block-12` — which is
+//! the same key the table of contents, the find bar and the selector tester use, so revealing a
+//! paragraph is a key lookup rather than a guess at a scroll offset in points.
+//!
+//! Two consequences worth knowing:
+//!
+//! - A row that is not built has no elements. Text selection and `Cmd+C` cover the built rows;
+//!   `Cmd+C` with nothing selected still copies the whole article, because that path reads the
+//!   document rather than the tree.
+//! - The article's headline and byline sit above the list as ordinary children of the same
+//!   scroll viewport, not as rows. A virtual stack may be the viewport's content or sit among
+//!   other content in it, and this keeps the headline out of the row estimate.
+
+use std::borrow::Cow;
 
 use rune::tok::radius;
-use rune::{Align, El, ScrollSpec, Span, col, el, rich, row, text};
+use rune::{Align, El, GrowthSpec, ScrollSpec, Span, col, el, rich, row, text};
 
 use crate::State;
 use crate::article::{Block, Inline, InlineKind};
+use crate::reader::virtuals;
 use crate::theme::Palette;
 
 pub fn view(s: &State, p: Palette, hair: f32) -> El {
@@ -12,64 +30,99 @@ pub fn view(s: &State, p: Palette, hair: f32) -> El {
         return super::empty::view(s, p, hair);
     };
     let measure = s.cfg.max_width;
+    let first = s.reader.first;
 
-    let mut article = col().key("article-body").w_full().gap(s.cfg.paragraph_spacing_px);
+    // The headline block: the article's own title, byline and reading time. It is not a row,
+    // so it keeps its own spacing and is never measured into the list's estimate.
+    let head = col()
+        .key("article-head")
+        .w_full()
+        .gap(10.0)
+        .mb(12.0)
+        .child(
+            text(doc.title.clone())
+                .key("headline")
+                .w_full()
+                .font(
+                    // The leading must clear the type size, not the base body size: an
+                    // `lh` below 1.0 collapses stacked headline lines into each other.
+                    rune::TextStyle::new(s.cfg.font_size * 1.7, 700.0)
+                        .lh(s.cfg.font_size * 1.7 * 1.25),
+                )
+                .color(p.fg)
+                .wrap(),
+        )
+        .child(
+            row()
+                .key("byline")
+                .w_full()
+                .gap(10.0)
+                .child(super::meta(
+                    s,
+                    p,
+                    {
+                        let mut parts = Vec::new();
+                        if let Some(by) = &doc.byline {
+                            parts.push(by.clone());
+                        }
+                        parts.push(format!("{} min read", doc.reading_minutes()));
+                        parts.join(" · ")
+                    },
+                )),
+        );
 
-    // The article's own header: title, byline, reading time.
-    article = article.child(
-        col()
-            .key("article-head")
-            .w_full()
-            .gap(10.0)
-            .mb(12.0)
-            .child(
-                text(doc.title.clone())
-                    .key("headline")
-                    .w_full()
-                    .font(
-                        // The leading must clear the type size, not the base body size: an
-                        // `lh` below 1.0 collapses stacked headline lines into each other.
-                        rune::TextStyle::new(s.cfg.font_size * 1.7, 700.0)
-                            .lh(s.cfg.font_size * 1.7 * 1.25),
-                    )
-                    .color(p.fg)
-                    .wrap(),
-            )
-            .child(
-                row()
-                    .key("byline")
-                    .w_full()
-                    .gap(10.0)
-                    .child(super::meta(
-                        s,
-                        p,
-                        {
-                            let mut parts = Vec::new();
-                            if let Some(by) = &doc.byline {
-                                parts.push(by.clone());
-                            }
-                            parts.push(format!("{} min read", doc.reading_minutes()));
-                            parts.join(" · ")
-                        },
-                    )),
-            ),
-    );
+    // The rows are the blocks after the headline. `first` is 1 only when the document opens
+    // with an H1, which the head above already draws.
+    let count = doc.blocks.len().saturating_sub(first);
+    let metrics = crate::reader::Reader::metrics(&s.cfg);
+    let estimate = virtuals::estimate(metrics, &doc.blocks[first..]);
 
-    for (i, block) in doc.blocks.iter().enumerate() {
-        // The H1 is the headline already drawn above; skip the duplicate.
-        if i == 0 && matches!(block, Block::Heading { level: 1, .. }) {
-            continue;
-        }
-        article = article.child(block_view(s, p, block, i));
-    }
+    let rows = col()
+        .key("article-rows")
+        .w_full()
+        .gap(s.cfg.paragraph_spacing_px)
+        .growth(GrowthSpec::default())
+        .virtual_rows(
+            count,
+            estimate,
+            // Row `i` is block `first + i`, and its key says so: the article's block index is
+            // the one stable name a paragraph has across a re-extract, a re-wrap and a resize.
+            |s: &State, i| Cow::Owned(format!("block-{}", s.reader.first + i)),
+            |s: &State, i| {
+                let p = s.palette();
+                let block = &s.doc.as_ref().expect("rows outlive their document").blocks[s.reader.first + i];
+                block_view(s, p, block, s.reader.first + i)
+            },
+        )
+        // The block range the list has built, for the selector tester's "not built" message and
+        // its near-row probes. Only a changed answer the view reads asks for another run, so
+        // scrolling a closed tester costs no view rebuild.
+        .on_visible_rows(|s: &mut State, r: std::ops::Range<usize>| {
+            let first = s.reader.first;
+            s.reader.visible_rows = (first + r.start, first + r.end.saturating_sub(1));
+            let frac = s.progress.get();
+            s.reader.at_block = s.reader.block_at(s.reader.visible_rows, frac);
+            s.reader.tester.open
+        })
+        // A different article is a different list: its keys and its measured heights must not
+        // carry over from the one before.
+        .virtual_rows_version(s.reader.generation);
 
     let scroller = col()
         .key("article")
         .w_full()
         .grow(1.0)
         .min_h(0.0)
+        .focusable(true)
         .scroll(ScrollSpec { stick_bottom: false })
         .on_scroll_offset(super::watch_scroll(s))
+        .on_key(|s: &mut State, _ev: &rune::KeyEvent, _tx: &mut rune::Tx| {
+            s.reader.chrome.nudge();
+            false
+        })
+        .on_press(|s: &mut State| {
+            s.reader.chrome.nudge();
+        })
         .child(
             row()
                 .key("article-row")
@@ -82,7 +135,8 @@ pub fn view(s: &State, p: Palette, hair: f32) -> El {
                         .key("measure")
                         .max_w(measure)
                         .w_full()
-                        .child(article),
+                        .child(head)
+                        .child(rows),
                 ),
         );
 
@@ -140,7 +194,31 @@ fn find_bar(s: &State, p: Palette, hair: f32) -> El {
             .on_edit(|s: &mut State| &mut s.find_edit)
             // The query is recomputed as it is typed, so the count and the highlights follow
             // the field without a separate "search" key.
-            .on_input_change(|s: &mut State, _tx: &mut rune::Tx| s.refresh_hits()),
+            .on_input_change(|s: &mut State, _tx: &mut rune::Tx| s.refresh_hits())
+            .on_input_key(|s: &mut State, ev: &rune::KeyEvent, tx: &mut rune::Tx| match ev.key {
+                rune::Key::Escape => {
+                    s.find_focus = false;
+                    s.find_edit = rune::TextEdit::new("");
+                    s.hits.clear();
+                    s.hit_at = 0;
+                    s.hit_query.clear();
+                    tx.focus("article", false);
+                    true
+                }
+                rune::Key::Enter => {
+                    s.step_hit(if ev.mods.shift { -1 } else { 1 });
+                    true
+                }
+                rune::Key::Down => {
+                    s.step_hit(1);
+                    true
+                }
+                rune::Key::Up => {
+                    s.step_hit(-1);
+                    true
+                }
+                _ => false,
+            }),
     );
 
     if !count.is_empty() {
@@ -206,6 +284,8 @@ fn find_bar(s: &State, p: Palette, hair: f32) -> El {
         .child(row)
 }
 
+/// One block, drawn as a row of the virtual list. `index` is the article's block index, which
+/// is what a highlight and a selector name.
 fn block_view(s: &State, p: Palette, block: &Block, index: usize) -> El {
     let key = format!("block-{index}");
     match block {
@@ -352,7 +432,8 @@ fn inline_block(s: &State, p: Palette, runs: &[Inline], key: String, block: usiz
         );
     }
     if runs.iter().any(|r| matches!(r.kind, InlineKind::Link(_))) {
-        body = body.on_link(|_: &mut State, href: &str, tx: &mut rune::Tx| {
+        body = body.on_link(|s: &mut State, href: &str, tx: &mut rune::Tx| {
+            s.save_place();
             let _ = tx.open_url(href);
         });
     }

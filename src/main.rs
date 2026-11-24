@@ -11,6 +11,7 @@
 mod article;
 mod config;
 mod library;
+mod reader;
 mod theme;
 mod ui;
 
@@ -20,7 +21,8 @@ use rune::{AppSpec, Cx, El, Key, KeyEvent, Live, Tx, col, el};
 use crate::article::ArticleDoc;
 use crate::config::Config;
 use crate::library::Library;
-use crate::ui::{drawer, empty, progress, reader, titlebar, toc};
+use crate::reader::Reader;
+use crate::ui::{drawer, empty, progress, tester, titlebar, toc};
 
 /// Which surface the window shows.
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
@@ -76,6 +78,11 @@ pub struct State {
     /// Set when the current hit changes and cleared once it has been scrolled to. Revealing is a
     /// one-shot request: asking again every frame would fight the reader's own scrolling.
     pub reveal_hit: bool,
+    /// The reading surface's own model: where the reader stopped, the auto-hiding chrome, and
+    /// the selector tester.
+    pub reader: Reader,
+    /// A block to reveal once the next commit has built its row, from the saved position.
+    pub restore_block: Option<usize>,
 }
 
 impl State {
@@ -110,6 +117,8 @@ impl State {
             hit_at: 0,
             hit_query: String::new(),
             reveal_hit: false,
+            reader: Reader::new(),
+            restore_block: None,
         }
     }
 
@@ -134,9 +143,12 @@ impl State {
     }
 
     fn open(&mut self, doc: ArticleDoc) {
+        // Leaving one article for another still counts as leaving: its place is worth keeping.
+        self.save_place();
         // The address field mirrors the open article, so pressing it to edit starts from the URL
         // that is actually being read rather than from stale text.
         self.edit = rune::TextEdit::new(doc.url.clone());
+        self.restore_block = self.reader.opened(&doc);
         self.doc = Some(doc);
         self.view = View::Reading;
         self.loading = false;
@@ -188,6 +200,33 @@ impl State {
         self.hit_at = ((self.hit_at as i32 + by).rem_euclid(n)) as usize;
         self.reveal_hit = true;
     }
+
+    /// A panel that needs the titlebar opened it, or closed it.
+    pub fn chrome_panel(&mut self, open: bool) {
+        self.reader.chrome.panel(open);
+    }
+
+    /// The pin chip: hold the bar open, or let it go.
+    pub fn chrome_pin(&mut self) {
+        let pinned = self.reader.chrome.is_pinned();
+        self.reader.chrome.pin(!pinned);
+    }
+
+    /// Write where the reader is into the saved positions, if an article is open.
+    ///
+    /// The block comes from the rows the list has built and how far the viewport has gone
+    /// through them: exact would need layout, and layout from a handler costs a commit.
+    pub fn save_place(&mut self) {
+        let url = match self.doc.as_ref() {
+            Some(d) => d.url.clone(),
+            None => return,
+        };
+        let (offset, frac) = (self.offset.get(), self.progress.get());
+        self.reader.at_block = self.reader.block_at(self.reader.visible_rows, frac);
+        self.reader.remember(&url, offset, frac);
+        self.library.set_progress(&url, frac);
+        self.library.save();
+    }
 }
 
 /// `Family::Named` wants `&'static str`; the font list is a setting, so it is interned once per
@@ -217,8 +256,14 @@ fn view(s: &State, cx: &mut Cx<State>) -> El {
     let surface = match s.view {
         View::Blank => empty::view(s, p, hair),
         View::Library => empty::library_view(s, p, hair),
-        View::Reading => reader::view(s, p, hair),
+        View::Reading => ui::reader::view(s, p, hair),
     };
+
+    // The bar shows in three of the chrome's four states, and while it hides the article takes
+    // the 56 points back: the surface's top padding is what moves, so nothing is hidden behind
+    // a bar that is still there.
+    let bar_visible = s.reader.chrome.is_visible();
+    let top = if bar_visible { ui::BAR_H } else { 0.0 };
 
     let mut page = col()
         .key("window")
@@ -226,9 +271,7 @@ fn view(s: &State, cx: &mut Cx<State>) -> El {
         .w_full()
         .h_full()
         .fill(p.bg)
-        .child(titlebar(s, p, hair))
-        .child(el().key("surface").grow(1.0).min_h(0.0).w_full().child(surface));
-
+        .child(el().key("surface").grow(1.0).min_h(0.0).w_full().pt(top).child(surface));
     if s.cfg.show_progress_bar && s.view == View::Reading {
         page = page.child(progress(s, p));
     }
@@ -243,7 +286,11 @@ fn view(s: &State, cx: &mut Cx<State>) -> El {
         .fill(p.bg)
         .child(page.pin(Some(0.0), Some(0.0), Some(0.0), Some(0.0)));
 
-    let below_bar = 56.0 + hair;
+    if bar_visible {
+        root = root.child(titlebar(s, p, hair).pin(Some(0.0), Some(0.0), Some(0.0), None));
+    }
+
+    let below_bar = if bar_visible { ui::BAR_H + hair } else { hair };
     if s.show_toc && s.view == View::Reading {
         root = root.child(
             toc::overlay(s, p, hair).pin(Some(0.0), Some(below_bar), Some(0.0), Some(0.0)),
@@ -252,6 +299,12 @@ fn view(s: &State, cx: &mut Cx<State>) -> El {
     if s.show_settings {
         root = root.child(
             drawer::overlay(s, p, hair).pin(Some(0.0), Some(below_bar), Some(0.0), Some(0.0)),
+        );
+    }
+    // The tester sits over the reading surface's lower right corner, above the progress bar.
+    if s.reader.tester.open && s.view == View::Reading {
+        root = root.child(
+            tester::panel(s, p, hair, cx).pin(Some(0.0), Some(below_bar), Some(0.0), Some(3.0)),
         );
     }
     root
@@ -270,10 +323,30 @@ fn start_fetch(url: String, slot: std::sync::Arc<std::sync::Mutex<Option<FetchRe
 
 type FetchResult = Result<ArticleDoc, article::FetchError>;
 
-fn poll(s: &mut State, _t: f64, tx: &mut Tx) -> bool {
-    let Some(slot) = SLOT.get() else { return false };
+fn poll(s: &mut State, t: f64, tx: &mut Tx) -> bool {
+    // Reading is the main activity, and scrolling is the quietest way to do it: a wheel or a
+    // glide that moved the page counts as the reader being here, without a per-move handler.
+    let offset = s.offset.get();
+    let scrolled = if (offset - s.reader.last_offset).abs() > 2.0 {
+        s.reader.last_offset = offset;
+        true
+    } else {
+        false
+    };
+    let mut chrome_changed = scrolled && s.reader.chrome.nudge();
+    // The chrome's idle clock runs next: it is the one part of the frame that can hide or show
+    // the titlebar, and its answer decides whether the rest of this poll needs to run the view.
+    chrome_changed |= s.reader.chrome.advance(t, tx);
+    let Some(slot) = SLOT.get() else { return chrome_changed };
     let taken = slot.lock().ok().and_then(|mut g| g.take());
     let Some(result) = taken else {
+        // A saved place is revealed once the row it names has been built. A virtual list builds
+        // only the rows near the viewport, so the request lands on the next commit after the
+        // article opens, when the first window of rows exists.
+        if let Some(block) = s.restore_block.take() {
+            tx.scroll_into_view(format!("block-{block}"));
+            return true;
+        }
         if let Some(target) = s.scroll_to.take() {
             match target {
                 // The title entry: back to the top of the article.
@@ -292,7 +365,7 @@ fn poll(s: &mut State, _t: f64, tx: &mut Tx) -> bool {
                 return true;
             }
         }
-        return false;
+        return chrome_changed;
     };
     match result {
         Ok(doc) => {
@@ -396,6 +469,19 @@ fn on_key(s: &mut State, ev: &KeyEvent, tx: &mut Tx) -> bool {
             }
             true
         }
+        // The selector tester: Ctrl+Shift+D. Checked before the vim keys so `d` never scrolls
+        // when the reader asked for the panel.
+        _ if tester::is_open_chord(ev) => {
+            if s.view == View::Reading {
+                s.reader.tester.open = !s.reader.tester.open;
+                if s.reader.tester.open {
+                    tx.focus("tester-field", false);
+                } else {
+                    tx.focus("article", false);
+                }
+            }
+            true
+        }
         // Folio's own keys: t theme, s settings, c TOC, g library, / address, r reload.
         Key::Text(t) if t.eq_ignore_ascii_case("t") => {
             s.cfg.cycle_theme();
@@ -404,16 +490,29 @@ fn on_key(s: &mut State, ev: &KeyEvent, tx: &mut Tx) -> bool {
             true
         }
         Key::Text(t) if t.eq_ignore_ascii_case("s") => {
-            s.show_settings = !s.show_settings;
+            let open = !s.show_settings;
+            s.show_settings = open;
+            s.chrome_panel(open);
             true
         }
         Key::Text(t) if t.eq_ignore_ascii_case("c") => {
             if s.view == View::Reading {
-                s.show_toc = !s.show_toc;
+                let open = !s.show_toc;
+                s.show_toc = open;
+                s.chrome_panel(open);
             }
             true
         }
+        // `z` toggles distraction-free reading: the bar steps out of the way at once, and a
+        // second press brings it back.
+        Key::Text(t) if t.eq_ignore_ascii_case("z") => {
+            s.reader.distraction_free = !s.reader.distraction_free;
+            let on = s.reader.distraction_free;
+            s.reader.chrome.set_enabled(on);
+            true
+        }
         Key::Text(t) if t.eq_ignore_ascii_case("g") => {
+            s.save_place();
             s.view = View::Library;
             s.show_toc = false;
             true
