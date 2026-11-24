@@ -43,21 +43,23 @@ impl Selector {
             return Err(SelectorError::Whitespace);
         }
         let parts: Vec<String> = raw.split('/').map(str::to_string).collect();
-        if parts.iter().any(|p| p.is_empty()) {
-            return Err(SelectorError::BlankSegment);
-        }
         if parts.len() > MAX_PARTS {
             return Err(SelectorError::TooManyParts);
+        }
+        if parts.iter().any(|p| p.is_empty()) {
+            return Err(SelectorError::BlankSegment);
         }
         Ok(Selector { parts })
     }
 
     /// The selector exactly as Rune's request APIs take it.
+    #[allow(dead_code)]
     pub fn raw(&self) -> String {
         self.parts.join("/")
     }
 
     /// The element's own key: the last segment.
+    #[allow(dead_code)]
     pub fn key(&self) -> &str {
         self.parts.last().map(String::as_str).unwrap_or("")
     }

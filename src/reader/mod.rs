@@ -40,7 +40,7 @@ pub struct Reader {
     pub first: usize,
     /// Bumped when a different article opens, so the virtual list carries no measured heights
     /// across from the last one.
-    pub gen: u64,
+    pub generation: u64,
     /// The block the reader was at when the last mark was taken, for `save_place`.
     pub at_block: usize,
     /// The scroll offset the last poll saw, so a scroll can count as the reader being active
@@ -65,7 +65,7 @@ impl Reader {
             tester: Tester::default(),
             visible_rows: (0, 0),
             first: 0,
-            gen: 0,
+            generation: 0,
             at_block: 0,
             last_offset: 0.0,
             distraction_free: true,
@@ -77,7 +77,7 @@ impl Reader {
     ///
     /// Returns the block to return to, if this article has one.
     pub fn opened(&mut self, doc: &ArticleDoc) -> Option<usize> {
-        self.gen = self.gen.wrapping_add(1);
+        self.generation = self.generation.wrapping_add(1);
         self.visible_rows = (0, 0);
         self.first = first_row(doc);
         self.at_block = self.first;
@@ -164,10 +164,10 @@ mod tests {
         r.positions.remember("https://example.com/x", 1, 120.0, 0.4);
         let at = r.opened(&doc(1));
         assert_eq!(at, Some(1));
-        assert_eq!(r.gen, 1);
+        assert_eq!(r.generation, 1);
         assert!(r.chrome.is_visible(), "a new article shows the chrome");
         r.opened(&doc(1));
-        assert_eq!(r.gen, 2, "a second article is a second list");
+        assert_eq!(r.generation, 2, "a second article is a second list");
     }
 
     #[test]

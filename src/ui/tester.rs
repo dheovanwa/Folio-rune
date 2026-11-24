@@ -30,8 +30,8 @@ pub fn panel(s: &State, p: Palette, hair: f32, cx: &mut rune::Cx<State>) -> El {
 
     // The probe is the selector last asked about, not every keystroke: reading a rect on each
     // keystroke would make typing in the field re-run the view for a key nobody finished.
-    let probe = tester.probe.clone().unwrap_or_default();
-    let rect = if probe.is_empty() { None } else { cx.layout(&probe) };
+    let probe_sel = tester.probe.clone().unwrap_or_default();
+    let rect = if probe_sel.is_empty() { None } else { cx.layout(&probe_sel) };
 
     let message = match (&parsed, tester.probe.is_some()) {
         (Err(e), false) => e.message().to_string(),
@@ -119,6 +119,7 @@ pub fn panel(s: &State, p: Palette, hair: f32, cx: &mut rune::Cx<State>) -> El {
         let mut chips = row().key("tester-nearby").w_full().gap(6.0);
         for key in nearby {
             let pressed = tester.probe.as_deref() == Some(key.as_str());
+            let k = key.clone();
             chips = chips.child(
                 el()
                     .key(format!("tester-chip-{key}"))
@@ -132,11 +133,11 @@ pub fn panel(s: &State, p: Palette, hair: f32, cx: &mut rune::Cx<State>) -> El {
                     .fill(if pressed { p.hover } else { p.field_bg })
                     .hover(p.hover)
                     .on_press(move |s: &mut State| {
-                        s.reader.tester.edit = rune::TextEdit::new(key.clone());
-                        s.reader.tester.probe = Some(key.clone());
+                        s.reader.tester.edit = rune::TextEdit::new(k.clone());
+                        s.reader.tester.probe = Some(k.clone());
                     })
                     .child(
-                        text(key.clone())
+                        text(key)
                             .key("label")
                             .font(rune::TextStyle::new(s.cfg.ui_font_size * 0.62, 400.0).mono())
                             .color(if pressed { p.accent } else { p.meta })
@@ -214,11 +215,13 @@ pub fn panel(s: &State, p: Palette, hair: f32, cx: &mut rune::Cx<State>) -> El {
 pub fn probe(s: &mut State) {
     let raw = s.reader.tester.edit.text.trim().to_string();
     s.reader.tester.probe = if raw.is_empty() { None } else { Some(raw) };
-    s.reader.tester.waiting = true;
 }
 
 /// Whether the keys that open the tester are held. One function, so the app's key handler and
 /// the tester's own hint cannot drift apart: Ctrl+Shift+D (`Cmd+Shift+D` on macOS).
 pub fn is_open_chord(ev: &rune::KeyEvent) -> bool {
-    ev.mods.shift && (matches!(&ev.key, rune::Key::Command('d')) || matches!(&ev.key, rune::Key::Text(t) if t.eq_ignore_ascii_case("d") && ev.mods.cmd))
+    ev.mods.shift
+        && (ev.is_command('d')
+            || matches!(&ev.key, rune::Key::Command('d'))
+            || matches!(&ev.key, rune::Key::Text(t) if t.eq_ignore_ascii_case("d") && (ev.mods.cmd || ev.mods.ctrl)))
 }

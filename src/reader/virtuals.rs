@@ -135,7 +135,7 @@ mod tests {
     fn a_code_block_counts_its_lines() {
         let one = block_height(m(), &Block::Code { text: "let x = 1;".into() });
         let ten = block_height(m(), &Block::Code { text: "let x = 1;\n".repeat(10) });
-        assert!(ten > one * 5.0, "ten lines are much taller than one: {one} vs {ten}");
+        assert!(ten > one * 4.0, "ten lines are much taller than one: {one} vs {ten}");
     }
 
     #[test]

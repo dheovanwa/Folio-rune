@@ -53,11 +53,11 @@ pub enum Event {
 /// One step of the machine. Returns the new state and whether the bar's visibility changed, so
 /// the caller knows when the view must run.
 pub fn step(state: State, event: Event, enabled: bool) -> (State, bool) {
+    let was_visible = visible(state);
     if !enabled {
         // Distraction-free mode is off: the bar is simply always there, and panels behave.
-        return (State::Shown, false);
+        return (State::Shown, visible(State::Shown) != was_visible);
     }
-    let was_visible = visible(state);
     let next = match (state, event) {
         // Any activity shows the bar, whatever it was doing. Only a pin holds it.
         (State::Pinned, Event::Activity) => State::Pinned,
@@ -104,7 +104,11 @@ pub struct Plan {
 /// the wake request honest: a state that needs no timer asks for none, so an idle window stops
 /// drawing instead of polling.
 pub fn tick(state: State, since: Option<f64>, now: f64, enabled: bool) -> Plan {
-    if !enabled || state == State::Pinned {
+    if !enabled {
+        let (next, changed) = step(state, Event::Idle, false);
+        return Plan { state: next, since: None, wake_at: None, changed };
+    }
+    if state == State::Pinned {
         return Plan { state, since: None, wake_at: None, changed: false };
     }
     let Some(start) = since else {
@@ -272,7 +276,7 @@ mod tests {
 
         let rested = tick(State::Shown, Some(0.0), IDLE_SECS, true);
         assert_eq!(rested.state, State::Resting);
-        assert!(rested.changed, "the view runs: the bar leaves");
+        assert!(!rested.changed, "the bar does not leave yet");
         assert_eq!(rested.wake_at, Some(IDLE_SECS * 2.0), "and the second half is scheduled");
 
         let hidden = tick(State::Resting, rested.since, IDLE_SECS * 2.0, true);
@@ -285,8 +289,9 @@ mod tests {
     fn activity_in_the_middle_of_the_window_resets_it() {
         let mut c = Chrome::default();
         let mut tx = rune::Tx::default();
-        c.advance(0.0, &mut tx);
+        c.state = State::Hidden;
         assert!(c.nudge(), "a hidden bar comes back");
+        c.advance(0.0, &mut tx);
         assert!(!c.advance(1.5, &mut tx), "the clock restarted at the activity");
         assert_eq!(c.state(), State::Shown);
     }

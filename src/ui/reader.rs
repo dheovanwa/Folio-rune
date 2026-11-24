@@ -100,19 +100,29 @@ pub fn view(s: &State, p: Palette, hair: f32) -> El {
         .on_visible_rows(|s: &mut State, r: std::ops::Range<usize>| {
             let first = s.reader.first;
             s.reader.visible_rows = (first + r.start, first + r.end.saturating_sub(1));
+            let frac = s.progress.get();
+            s.reader.at_block = s.reader.block_at(s.reader.visible_rows, frac);
             s.reader.tester.open
         })
         // A different article is a different list: its keys and its measured heights must not
         // carry over from the one before.
-        .virtual_rows_version(s.reader.gen);
+        .virtual_rows_version(s.reader.generation);
 
     let scroller = col()
         .key("article")
         .w_full()
         .grow(1.0)
         .min_h(0.0)
+        .focusable(true)
         .scroll(ScrollSpec { stick_bottom: false })
         .on_scroll_offset(super::watch_scroll(s))
+        .on_key(|s: &mut State, _ev: &rune::KeyEvent, _tx: &mut rune::Tx| {
+            s.reader.chrome.nudge();
+            false
+        })
+        .on_press(|s: &mut State| {
+            s.reader.chrome.nudge();
+        })
         .child(
             row()
                 .key("article-row")
@@ -184,7 +194,31 @@ fn find_bar(s: &State, p: Palette, hair: f32) -> El {
             .on_edit(|s: &mut State| &mut s.find_edit)
             // The query is recomputed as it is typed, so the count and the highlights follow
             // the field without a separate "search" key.
-            .on_input_change(|s: &mut State, _tx: &mut rune::Tx| s.refresh_hits()),
+            .on_input_change(|s: &mut State, _tx: &mut rune::Tx| s.refresh_hits())
+            .on_input_key(|s: &mut State, ev: &rune::KeyEvent, tx: &mut rune::Tx| match ev.key {
+                rune::Key::Escape => {
+                    s.find_focus = false;
+                    s.find_edit = rune::TextEdit::new("");
+                    s.hits.clear();
+                    s.hit_at = 0;
+                    s.hit_query.clear();
+                    tx.focus("article", false);
+                    true
+                }
+                rune::Key::Enter => {
+                    s.step_hit(if ev.mods.shift { -1 } else { 1 });
+                    true
+                }
+                rune::Key::Down => {
+                    s.step_hit(1);
+                    true
+                }
+                rune::Key::Up => {
+                    s.step_hit(-1);
+                    true
+                }
+                _ => false,
+            }),
     );
 
     if !count.is_empty() {
@@ -398,7 +432,8 @@ fn inline_block(s: &State, p: Palette, runs: &[Inline], key: String, block: usiz
         );
     }
     if runs.iter().any(|r| matches!(r.kind, InlineKind::Link(_))) {
-        body = body.on_link(|_: &mut State, href: &str, tx: &mut rune::Tx| {
+        body = body.on_link(|s: &mut State, href: &str, tx: &mut rune::Tx| {
+            s.save_place();
             let _ = tx.open_url(href);
         });
     }
